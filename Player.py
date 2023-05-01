@@ -22,9 +22,8 @@ class Player:
         지속적인 체력 감소, 특정 행동의 제약 등을 유발하는 기능.
         """
 
-        self.items: list = []
-        """
-        소지 아이템\n
+        self.items: dict = {}
+        """소지 아이템\n
         긍정적 상태처럼 특정 선택지를 선택할 수 있다.
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
@@ -52,8 +51,8 @@ class Player:
         체력 값을 설정
         """
         if health >= 0 and health <= self.health_max:
-        self.health = health
-        return self.health
+            self.health = health
+            return self.health
         else:
             return "Out of Range"
 
@@ -86,13 +85,13 @@ class Player:
         return self.buffs
 
 
-    def getItems(self) -> list:
+    def getItems(self) -> dict:
         """
         아이템 반환
         """
         return self.items
 
-    def setItems(self, items: list) -> list:
+    def setItems(self, items: dict) -> dict:
         """
         아이템 설정
         """
@@ -111,8 +110,8 @@ class Player:
         무게 값 설정
         """
         if weight >= 0 and weight <= self.weight_max:
-        self.weight = weight
-        return self.weight
+            self.weight = weight
+            return self.weight
         else:
             return "Out of Range"
 
