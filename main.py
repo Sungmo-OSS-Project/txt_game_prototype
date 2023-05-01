@@ -1,3 +1,6 @@
+from Player import Player
+player = Player()
+
 def initializeMaintainance():
     """기초 정비\n
     쉘터 출발 이전에 아이템을 소지할 수 있다.
@@ -6,6 +9,12 @@ def initializeMaintainance():
     print("기초 정비", end="")
     for _ in range(5): print("-", end="")
     print()
+
+    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
+    player.setItems({"구급키트" : 2, "주사기" : 3, "손전등" : 1})
+    for key, value in player.getItems().items():
+        print("아이템:", key, value)
+
 
 def explore():
     """탐사 출발\n
@@ -16,6 +25,13 @@ def explore():
     for _ in range(5): print("-", end="")
     print()
 
+    while(True):
+        inputs = input("탐사 출발하시겠습니까? (Y/N) >>").upper()
+        if inputs == "Y":
+            return True
+        elif inputs == "N":
+            return False
+    
 
 def event():
     """이벤트\n
@@ -27,6 +43,13 @@ def event():
     for _ in range(5): print("-", end="")
     print()
 
+    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!") # EVENT
+    new = {"물병 500ml" : 2, "통조림" : 1}
+    for key, value in new.items():
+        print(key + ", " + str(value) + "개")
+        player.items[key] = value
+
+
 def comeback():
     """쉘터 복귀\n
     플레이어는 특정 시점마다 '쉘터 복귀' 선택지를 선택하여 쉘터로 복귀할 수 있다.
@@ -35,6 +58,14 @@ def comeback():
     print("쉘터 복귀", end="")
     for _ in range(5): print("-", end="")
     print()
+
+    while(True):
+        inputs = input("쉘터 복귀하시겠습니까? (Y/N) >>").upper()
+        if inputs == "Y":
+            return True
+        elif inputs == "N":
+            return False
+
 
 def maintainance():
     """정비\n
@@ -46,6 +77,12 @@ def maintainance():
     for _ in range(5): print("-", end="")
     print()
 
+    player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
+    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
+
+    for key, value in player.getItems().items():
+        print("아이템:", key, value)
+
 def main():
     """
     프로그램 시작
@@ -54,13 +91,11 @@ def main():
     
     initializeMaintainance()
 
-    explore()
+    if explore(): # 탐험하면
+        event() # 이벤트가 발생하고
 
-    event()
-
-    comeback()
-
-    maintainance()
+        if comeback(): # 쉘터에 복귀하면
+            maintainance() # 정비할 수 있음
 
     print("프로그램 종료")
     ## 프로그램 종료
