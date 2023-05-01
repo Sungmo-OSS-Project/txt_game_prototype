@@ -51,8 +51,11 @@ class Player:
         """
         체력 값을 설정
         """
+        if health >= 0 and health <= self.health_max:
         self.health = health
         return self.health
+        else:
+            return "Out of Range"
 
 
     def getHealthMax(self) -> int:
@@ -107,8 +110,11 @@ class Player:
         """
         무게 값 설정
         """
+        if weight >= 0 and weight <= self.weight_max:
         self.weight = weight
         return self.weight
+        else:
+            return "Out of Range"
 
 
     def getWeightMax(self) -> int:
