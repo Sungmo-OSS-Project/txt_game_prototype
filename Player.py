@@ -7,12 +7,15 @@ class Player:
         기본(시작) 값은 20으로 고정.\n
         체력이 0이 되는 경우 플레이어는 사망하며, 게임 오버.\n
         체력은 최대 체력 이상으로 상승할 수 없음\n
-        특정 이벤트를 통하여 현재, 최대 체력에 증감이 있을 수 있음.
+        특정 이벤트를 통하여 체력에 증감이 있을 수 있음.
         """
 
+        self.health_max: int = 20
+        """최대 체력\n
+        특정 이벤트를 통하여 최대 체력에 증감이 있을 수 있음."""
+
         self.buffs: dict = {}
-        """
-        각종 긍정적/부정적 상태. ("상태 명": 레벨)의 형태\n
+        """각종 긍정적/부정적 상태. ("상태 명": 레벨)의 형태\n
         긍정적 상태(+) :
         각종 이벤트의 선택지(분기)에서 특정 상태가 존재할 경우 선택할 수 있는 분기가 활성화 또는 추가됨.\n
         부정적 상태(-) :
@@ -50,6 +53,20 @@ class Player:
         """
         self.health = health
         return self.health
+
+
+    def getHealthMax(self) -> int:
+        """
+        최대 체력 값을 반환
+        """
+        return self.health_max
+
+    def setHealthMax(self, max: int) -> int:
+        """
+        최대 체력 값을 설정
+        """
+        self.health_max = max
+        return self.health_max
 
 
     def getBuffs(self) -> dict:
