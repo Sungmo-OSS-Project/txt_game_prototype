@@ -9,11 +9,39 @@ def initializeMaintainance():
     print("기초 정비", end="")
     for _ in range(5): print("-", end="")
     print()
-
+    
+    
     print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
-    player.setItems({"구급키트" : 2, "주사기" : 3, "손전등" : 1})
-    for key, value in player.getItems().items():
+    # 주석 처리.
+    # player.setItems({"구급키트" : 2, "주사기" : 3, "손전등" : 1})
+    # for key, value in player.getItems().items():
+    #     print("아이템:", key, value)
+
+
+    # 쉘터 출발 이전에 아이템을 소지할 수 있다는 것을 알리는 메시지 출력
+    print("쉘터 출발 이전에 아이템을 소지할 수 있습니다.")
+
+    # 아이템 목록 리스트 생성
+    item_list = ["식수", "식량", "손전등", "전지", "카메라", "충전기"]
+
+    # 아이템 목록 출력
+    print("소지 가능한 아이템 목록:")
+    for item in item_list:
+        print("- " + item)
+
+    # 아이템 선택을 위한 입력 메시지 출력
+    print("소지할 아이템을 선택하세요. (띄어쓰기로 구분)")
+
+    # 사용자 입력을 받아 선택한 아이템 출력
+    selected_item = input().split()
+    print("선택한 아이템: ", selected_item)
+
+    for key in selected_item:
+        player.inventory[key] = 1
+
+    for key, value in player.getInventory().items():
         print("아이템:", key, value)
+    print("을 가지고 쉘터로 이동합니다.")
 
 
 def explore():
@@ -47,7 +75,7 @@ def event():
     new = {"물병 500ml" : 2, "통조림" : 1}
     for key, value in new.items():
         print(key + ", " + str(value) + "개")
-        player.items[key] = value
+        player.inventory[key] = value
 
 
 def comeback():
@@ -88,7 +116,7 @@ def maintainance():
     print("체력 회복!")
     print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
 
-    for key, value in player.getItems().items():
+    for key, value in player.getInventory().items():
         print("아이템:", key, value)
 
 def main():

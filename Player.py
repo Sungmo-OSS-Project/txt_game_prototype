@@ -22,7 +22,7 @@ class Player:
         지속적인 체력 감소, 특정 행동의 제약 등을 유발하는 기능.
         """
 
-        self.items: dict = {}
+        self.inventory: dict = {}
         """소지 아이템\n
         긍정적 상태처럼 특정 선택지를 선택할 수 있다.
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
@@ -93,18 +93,18 @@ class Player:
         return self.buffs
 
 
-    def getItems(self) -> dict:
+    def getInventory(self) -> dict:
         """
         아이템 반환
         """
-        return self.items
+        return self.inventory
 
-    def setItems(self, items: dict) -> dict:
+    def setInventory(self, items: dict) -> dict:
         """
         아이템 설정
         """
-        self.items = items
-        return self.items
+        self.inventory = items
+        return self.inventory
 
     
     def getWeight(self) -> int:
