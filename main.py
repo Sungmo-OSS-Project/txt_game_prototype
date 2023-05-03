@@ -1,5 +1,12 @@
+days = 0 # 지난 날짜 수
+
 from Player import Player
 player = Player()
+
+from Buff import Buff
+heal = Buff(name="치유", level=1)
+poison = Buff(name="독", level=-1)
+
 
 def initializeMaintainance():
     """기초 정비\n
