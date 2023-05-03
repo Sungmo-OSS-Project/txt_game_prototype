@@ -65,6 +65,9 @@ def comeback():
             return True
         elif inputs == "N":
             return False
+        elif inputs == "A": # death scenario for the test
+            player.setHealth(0)
+            return True
 
 
 def maintainance():
@@ -77,7 +80,12 @@ def maintainance():
     for _ in range(5): print("-", end="")
     print()
 
+    if player.getIsDied():
+        print("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
+        
+    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
     player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
+    print("체력 회복!")
     print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
 
     for key, value in player.getItems().items():

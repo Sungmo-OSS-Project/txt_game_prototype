@@ -57,6 +57,14 @@ class Player:
             return "Out of Range"
 
 
+    def getIsDied(self) -> bool:
+        """죽었는가 반환"""
+        if self.health <= 0: # 체력이 0보다 작거나 같아지면 True
+            return True
+        else:
+            return False
+
+
     def getHealthMax(self) -> int:
         """
         최대 체력 값을 반환
