@@ -8,7 +8,7 @@ heal = Buff(name="치유", level=1)
 poison = Buff(name="독", level=-1)
 
 
-def initializeMaintainance():
+def initializeMaintenance():
     """기초 정비\n
     쉘터 출발 이전에 아이템을 소지할 수 있다.
     """
@@ -105,7 +105,7 @@ def comeback():
             return True
 
 
-def maintainance():
+def maintenance():
     """정비\n
     체력이 최대치까지 회복되며, 자신이 소지한 아이템을 저장, 판매, 폐기할 수 있다.\n
     플레이어가 모든 정비를 마친 경우 다시 '탐사 출발'을 선택하여 2 ~ 5의 과정을 반복한다.
@@ -132,13 +132,13 @@ def main():
     """
     print("프로그램 시작")
     
-    initializeMaintainance()
+    initializeMaintenance()
 
     if explore(): # 탐험하면
         event() # 이벤트가 발생하고
 
         if comeback(): # 쉘터에 복귀하면
-            maintainance() # 정비할 수 있음
+            maintenance() # 정비할 수 있음
 
     print("프로그램 종료")
     ## 프로그램 종료
