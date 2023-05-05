@@ -57,7 +57,9 @@ class Player:
         else:
             return "Out of Range"
 
-
+    def printHealth(self):
+        print("체력 [{} / {}]".format(self.health, self.health_max))
+        
     def getIsDied(self) -> bool:
         """죽었는가 반환"""
         if self.health <= 0: # 체력이 0보다 작거나 같아지면 True
