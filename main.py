@@ -13,15 +13,7 @@ class Death(Exception):
     def __init__(self):
         super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
 
-def decoName(name: str):
-    """
-    함수의 시작을 꾸며주는 데코레이터
-    """
-    for _ in range(5): print("-", end="")
-    print(name, end="")
-    for _ in range(5): print("-", end="")
-    print()        
-
+from decoName import decoName
 
 def initializeMaintenance():
     """기초 정비\n
