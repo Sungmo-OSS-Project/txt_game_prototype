@@ -9,6 +9,10 @@ poison = Buff(name="독", level=-1)
 
 from Item import Item
 
+class Death(Exception):
+    def __init__(self):
+        super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
+
 def decoName(name: str):
     """
     함수의 시작을 꾸며주는 데코레이터
@@ -67,6 +71,8 @@ def explore():
     쉘터에서 출발하며 각종 이벤트에 노출된다.
     """
     decoName("탐사 출발")
+    
+    print(f"Days : {days}")
 
     while(True):
         inputs = input("탐사 출발하시겠습니까? (Y/N) >>").upper()
@@ -85,7 +91,6 @@ def event():
 
     print("어떤 이벤트가 발생하여 무언가를 선택했습니다!") # EVENT
     
-    print()
     items: list[Item] = [Item(name="물병 500ml", weight=2)\
                         ,Item(name="물병 500ml", weight=2)\
                         ,Item(name="통조림", weight=1)]
@@ -122,8 +127,8 @@ def maintenance():
     """
     decoName("정비")
 
-    if player.getIsDied():
-        print("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
+    if player.getIsDied(): # 사망할 시 예외 던짐
+        raise Death()
         
     print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
     player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
@@ -141,11 +146,20 @@ def main():
     
     initializeMaintenance()
 
-    if explore(): # 탐험하면
-        event() # 이벤트가 발생하고
+    try:
+        while(True):
+            global days
+            days += 1
+            if explore(): # 탐험하면
+                event() # 이벤트가 발생하고
 
-        if comeback(): # 쉘터에 복귀하면
-            maintenance() # 정비할 수 있음
+                if comeback(): # 쉘터에 복귀하면
+                    maintenance() # 정비할 수 있음
+    except Death as e:
+        print(e)
+    except Exception as e:
+        print("예외 발생:", e)
+            
 
     print("프로그램 종료")
     ## 프로그램 종료
