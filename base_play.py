@@ -9,7 +9,8 @@ weight = 0
 
 inventory = {}
 
-event_count = 0
+event_count = 0 #한 번의 탐사에서 진행한 이벤트 수를 표시. 
+event_cycle = 10 #탐사 한 번당 최대 이벤트 횟수(개발에 따라 조정)
 
 from items.Item import *
 
@@ -53,20 +54,16 @@ def explore():
     이벤트를 특정 횟수 이상 진행하면 '쉘터 복귀' 활성화
     """
     global event_count
-    for i in range(1):
+    for i in range(event_cycle):
         
         fall_by_rock(health) #해당 부분은 임시적으로 생성한 이벤트를 불러왔음. 추후에는 여러 이벤트 중 랜덤하게 불러오도록 할 예정
         
         health_checker() #매 이벤트 종료 시 체력 상황 출력
         event_count += 1
         
-def back_to():
-    yes_or_no = input("쉘터로 돌아가겠습니까? (Yes / No) : ")
-    if yes_or_no == "Yes":
-        print("당신은 쉘터로 복귀합니다.")
-    else:
-        print("당신은 탐사를 이어나갑니다.")
-        
+        if health <= 0: #체력이 0 이하가 되면 사망
+            break
+    return "GameOver"
     
 def maintenance():
     """
@@ -78,4 +75,24 @@ def maintenance():
     print("당신은 쉘터로 복귀했습니다.\n체력이 최대치로 회복되었습니다.\n당신은 아이템을 보관하거나, 다음 탐사를 위한 아이템을 소지할 수 있습니다.")
     health = health_max
     health_checker()
-          
+    #아이템 관리에 관한 코드 구현 
+
+#게임 플레이
+stater_Maintenance()
+print("당신의 이야기를 시작합니다")
+
+while True:
+    while True:
+        explore()
+        if explore() == "GameOver":
+            break
+        yes_no = input("쉘터로 복귀하시겠습니까? (Y/N)")
+        if yes_no == "N":   #event_cycle 만큼의 이벤트 진행 후 추가 탐사 진행 여부 결정, 추가 탐사 진행 시 다시 event_cycle 만큼의 탐사 진행 
+            print("당신은 탐사를 더 진행하기로 합니다.")
+            event_count = 0 
+            continue
+        else:
+            print("당신은 쉘터로 복귀합니다.")
+            event_count = 0
+            break
+    maintenance()
