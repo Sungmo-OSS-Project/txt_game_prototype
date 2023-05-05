@@ -1,3 +1,4 @@
+from Item import Item
 class Player:
     def __init__(self):
         """Player 생성"""
@@ -14,7 +15,7 @@ class Player:
         """최대 체력\n
         특정 이벤트를 통하여 최대 체력에 증감이 있을 수 있음."""
 
-        self.buffs: dict = {}
+        self.buffs: dict = dict()
         """각종 긍정적/부정적 상태. ("상태 명": 레벨)의 형태\n
         긍정적 상태(+) :
         각종 이벤트의 선택지(분기)에서 특정 상태가 존재할 경우 선택할 수 있는 분기가 활성화 또는 추가됨.\n
@@ -22,8 +23,8 @@ class Player:
         지속적인 체력 감소, 특정 행동의 제약 등을 유발하는 기능.
         """
 
-        self.inventory: dict = {}
-        """소지 아이템\n
+        self.inventory: list[Item] = list()
+        """인벤토리\n
         긍정적 상태처럼 특정 선택지를 선택할 수 있다.
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
@@ -92,19 +93,27 @@ class Player:
         self.buffs = buffs
         return self.buffs
 
-
-    def getInventory(self) -> dict:
+    
+    def getInventory(self) -> list[Item]:
         """
-        아이템 반환
+        인벤토리 값 반환
         """
         return self.inventory
 
-    def setInventory(self, items: dict) -> dict:
+    def setInventory(self, inventory: list) -> list:
         """
-        아이템 설정
+        인벤토리 값 설정
         """
-        self.inventory = items
+        self.inventory = inventory
         return self.inventory
+
+    def printInventory(self):
+        """
+        인벤토리 출력
+        """
+        print("인벤토리")
+        for item in self.inventory:
+            print(f"- {item.getName()}(무게:{item.getWeight()})")
 
     
     def getWeight(self) -> int:
