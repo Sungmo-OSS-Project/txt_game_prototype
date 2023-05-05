@@ -51,12 +51,22 @@ class Player:
         """
         체력 값을 설정
         """
-        if health >= 0 and health <= self.health_max:
-            self.health = health
-            return self.health
-        else:
-            return "Out of Range"
+        if health <= 0:
+            self.health = 0
+        elif health >= self.health_max:
+            self.health = self.health_max
+        return self
 
+    def printHealth(self: "Player") -> None:
+        """체력 값을 출력"""
+        print(f"체력: {self.health}/{self.health_max}")
+        for i in range(self.health_max):
+            if i < self.health:
+                print("■", end="")
+            else:
+                print("□", end="")
+        print()
+        return None
     def printHealth(self):
         print("체력 [{} / {}]".format(self.health, self.health_max))
         
@@ -152,4 +162,4 @@ class Player:
 if __name__ == "__main__":
     p1 = Player()
     p1.setHealth(100)
-    print("p1의 체력 값은", p1.getHealth(), "입니다.")
+    p1.printHealth()

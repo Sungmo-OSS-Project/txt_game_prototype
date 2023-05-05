@@ -29,7 +29,7 @@ def initializeMaintenance():
     """
     decoName("기초 정비")
 
-    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
+    player.printHealth()
 
     # 쉘터 출발 이전에 아이템을 소지할 수 있다는 것을 알리는 메시지 출력
     print("쉘터 출발 이전에 아이템을 소지할 수 있습니다.")
@@ -125,16 +125,15 @@ def maintenance():
     """
     decoName("정비")
 
+    player.printHealth()
+    
     if player.getIsDied(): # 사망할 시 예외 던짐
         raise Death()
         
-    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
     player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
     print("체력 회복!")
-    print("체력: " + str(player.getHealth()) + "/" + str(player.getHealthMax()))
-
-    for item in player.getInventory():
-        print("- " + item.getName() + ". 무게: " + str(item.getWeight()))
+    player.printHealth()
+    player.printInventory()
 
 def main():
     """
