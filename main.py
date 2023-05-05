@@ -3,9 +3,9 @@ days = 0 # 지난 날짜 수
 from Player import Player
 player = Player()
 
-from Buff import Buff
-heal = Buff(name="치유", level=1)
-poison = Buff(name="독", level=-1)
+# from Buff import Buff
+# heal = Buff(name="치유", level=1)
+# poison = Buff(name="독", level=-1)
 
 from Item import Item
 
@@ -99,8 +99,6 @@ def event():
         player.inventory.append(i)
     
     player.printInventory()
-    # for item in player.getInventory():
-    #     print("- " + item.getName() + ". 무게: " + str(item.getWeight()))
 
 
 def comeback():
@@ -143,7 +141,7 @@ def main():
     프로그램 시작
     """
     print("프로그램 시작")
-    
+
     initializeMaintenance()
 
     try:
@@ -159,7 +157,7 @@ def main():
         print(e)
     except Exception as e:
         print("예외 발생:", e)
-            
+
 
     print("프로그램 종료")
     ## 프로그램 종료
