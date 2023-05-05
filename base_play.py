@@ -9,6 +9,7 @@ weight = 0
 
 inventory = {}
 
+event_count = 0
 
 from items.Item import *
 
@@ -49,12 +50,32 @@ def explore():
     """
     탐사
     각종 이벤트가 해당 함수에서 발생
+    이벤트를 특정 횟수 이상 진행하면 '쉘터 복귀' 활성화
     """
+    global event_count
     for i in range(1):
-        fall_by_rock(health) #해당 행은 여러 이벤트를 랜덤으로 불러오도록 설정할 예정
-        health_checker()
-
+        
+        fall_by_rock(health) #해당 부분은 임시적으로 생성한 이벤트를 불러왔음. 추후에는 여러 이벤트 중 랜덤하게 불러오도록 할 예정
+        
+        health_checker() #매 이벤트 종료 시 체력 상황 출력
+        event_count += 1
+        
+def back_to():
+    yes_or_no = input("쉘터로 돌아가겠습니까? (Yes / No) : ")
+    if yes_or_no == "Yes":
+        print("당신은 쉘터로 복귀합니다.")
+    else:
+        print("당신은 탐사를 이어나갑니다.")
+        
+    
 def maintenance():
     """
-    쉘터 복귀 후 정비하는 함수 추가 예정
+    쉘터 복귀 후 정비
+    체력이 최대치로 회복
     """
+    global health
+    global health_max
+    print("당신은 쉘터로 복귀했습니다.\n체력이 최대치로 회복되었습니다.\n당신은 아이템을 보관하거나, 다음 탐사를 위한 아이템을 소지할 수 있습니다.")
+    health = health_max
+    health_checker()
+          
