@@ -9,9 +9,7 @@ player = Player()
 
 from Item import Item
 
-class Death(Exception):
-    def __init__(self):
-        super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
+from Death import Death
 
 from decoName import decoName
 
