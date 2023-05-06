@@ -1,4 +1,5 @@
 class Buff():
+    """Buff Class"""
     def __init__(self, name: str = str(), level: int = 0):
         """Buff 생성"""
 

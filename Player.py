@@ -3,6 +3,7 @@ from Buff import Buff
 from decoName import decoName
 
 class Player:
+    """Player Class"""
     def __init__(self: "Player") -> "Player":
         """Player 생성"""
 

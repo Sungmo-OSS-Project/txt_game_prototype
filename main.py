@@ -1,5 +1,5 @@
 from Player import Player
-from Item import Item
+from Item import Item # 아이템을 직접적으로 main 파일에서 생성하지 않음. 나중에 삭제 예정.
 from Death import Death
 
 # 버프에 관해서는 아직 구현되지 않음. 이벤트 처리 후 구현 예정.
@@ -14,15 +14,14 @@ from comeback import comeback
 from maintenance import maintenance
 
 def main():
-    """
-    프로그램 시작
-    """
+    """프로그램 시작"""
     print("프로그램 시작")
 
     player = Player()
+    days = int(0) # 지난 날짜 수
 
     initializeMaintenance(player)
-    days = int(0) # 지난 날짜 수
+
     try:
         while(True):
             days += 1
