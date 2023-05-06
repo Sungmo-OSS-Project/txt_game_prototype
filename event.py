@@ -1,6 +1,7 @@
 from decoName import decoName
 from Item import Item
 from Player import Player
+from Events.Event import *
 
 def event(player: Player):
     """이벤트\n
@@ -9,7 +10,8 @@ def event(player: Player):
     """
     decoName("이벤트")
 
-    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!") # EVENT
+    # 구식 이벤트. 정리될 예정.
+    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!")
     
     items: list[Item] = [Item(name="물병 500ml", weight=2)\
                         ,Item(name="물병 500ml", weight=2)\
@@ -19,3 +21,7 @@ def event(player: Player):
         player.inventory.append(i)
     
     player.printInventory()
+
+    # 예시 이벤트 실행 !!
+    DecreaseHealthEvent(player=player).trigger() 
+    GetKnifeEvent(player=player).trigger()
