@@ -59,6 +59,8 @@ class Player:
             self.health = 0
         elif health >= self.health_max:
             self.health = self.health_max
+        else:
+            self.health = health
         return self
 
     def printHealth(self: "Player") -> None:
