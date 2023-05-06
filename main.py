@@ -6,6 +6,10 @@ player = Player()
 from Buff import Buff
 heal = Buff(name="치유", level=1)
 poison = Buff(name="독", level=-1)
+thirst = Buff(name="갈증", level=-1)
+hunger = Buff(name="허기", level=-1)
+light = Buff(name="밝기", level=-1)
+battery = Buff(name="전지", level=-1)
 
 from Item import Item
 
@@ -36,12 +40,12 @@ def initializeMaintenance():
 
     # 가져갈 수 있는 아이템 목록 리스트
     item_list: list[Item] = list()  # 빈 리스트 생성
-    item_list.append(Item(name="식수", weight=2))
-    item_list.append(Item(name="식량", weight=1))
-    item_list.append(Item(name="손전등", weight=2))
-    item_list.append(Item(name="전지", weight=2))
-    item_list.append(Item(name="카메라", weight=2))
-    item_list.append(Item(name="충전기", weight=1))
+    item_list.append(Item(name="식수", weight=2, itemsEvents=1))
+    item_list.append(Item(name="식량", weight=1, itemsEvents=2))
+    item_list.append(Item(name="손전등", weight=2, itemsEvents=3))
+    item_list.append(Item(name="전지", weight=2, itemsEvents=4))
+    item_list.append(Item(name="카메라", weight=2, itemsEvents=5))
+    item_list.append(Item(name="충전기", weight=1, itemsEvents=6))
 
     # 아이템 목록 출력
     print("소지 가능한 아이템 목록:")
@@ -99,9 +103,40 @@ def event():
         player.inventory.append(i)
     
     player.printInventory()
-    # for item in player.getInventory():
-    #     print("- " + item.getName() + ". 무게: " + str(item.getWeight()))
+    for item in player.getInventory():
+        print("- " + item.getName() + ". 무게: " + str(item.getWeight()))
 
+def itemsEvent():
+    """아이템 종류에 따라 다른 이벤트를 발생시킴"""
+    decoName("아이템 사용")
+
+    eventsWhileBool = True
+    while(eventsWhileBool):
+        inputs = input("아이템을 사용하시겠습니까? (Y/N) >>").upper()
+        if inputs == "Y":
+            player.printInventory()
+            inventoryNum = (int) (input("사용하실 아이템 인벤토리 번호를 입력해주세요."))
+            item = player.getInventory()[inventoryNum]
+            if player.getInventory[inventoryNum].getItemsEvents() == 1:
+                thirst.setLevel(1)
+            elif player.getInventory[inventoryNum].getItemsEvents() == 2:
+                hunger.setLevel(1)
+            elif player.getInventory[inventoryNum].getItemsEvents() == 3:
+                light.setLevel(1)
+            elif player.getInventory[inventoryNum].getItemsEvents() == 4:
+                battery.setLevel(1)
+            elif player.getInventory[inventoryNum].getItemsEvents() == 5:
+                pass
+                '''무슨 효과인지 모르겠음'''
+            elif player.getInventory[inventoryNum].getItemsEvents() == 6:
+                pass
+                '''전지랑 뭐가 다른건지 잘 모르겠음'''
+            else:
+                print("다시 입력해 주세요.")
+        if inputs == "N":
+            eventsWhileBool = False
+        else:
+            print("다시 입력해 주세요.")
 
 def comeback():
     """쉘터 복귀\n
