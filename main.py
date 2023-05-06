@@ -1,17 +1,15 @@
-days = 0 # 지난 날짜 수
-
+from decoName import decoName
+from Death import Death
+from Item import Item
 from Player import Player
+days = 0  # 지난 날짜 수
+
 player = Player()
 
 # from Buff import Buff
 # heal = Buff(name="치유", level=1)
 # poison = Buff(name="독", level=-1)
 
-from Item import Item
-
-from Death import Death
-
-from decoName import decoName
 
 def initializeMaintenance():
     """기초 정비\n
@@ -52,7 +50,8 @@ def initializeMaintenance():
         selected_items = selected_items.split()  # 입력받은 문자열을 공백을 기준으로 분리하여 리스트로 변환
 
         for i in selected_items:
-            inventory.append(takableItemsList[int(i)-1])  # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
+            # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
+            inventory.append(takableItemsList[int(i)-1])
     except IndexError:
         pass
 
@@ -60,7 +59,7 @@ def initializeMaintenance():
 
     # 인벤토리 목록 출력
     player.printInventory()
-    
+
     print("을 가지고 쉘터로 이동합니다.")
 
 
@@ -69,16 +68,16 @@ def explore():
     쉘터에서 출발하며 각종 이벤트에 노출된다.
     """
     decoName("탐사 출발")
-    
+
     print(f"Days : {days}")
 
-    while(True):
+    while (True):
         inputs = input("탐사 출발하시겠습니까? (Y/N) >>").upper()
         if inputs == "Y":
             return True
         elif inputs == "N":
             return False
-    
+
 
 def event():
     """이벤트\n
@@ -87,16 +86,28 @@ def event():
     """
     decoName("이벤트")
 
-    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!") # EVENT
-    
-    items: list[Item] = [Item(name="물병 500ml", weight=2)\
-                        ,Item(name="물병 500ml", weight=2)\
-                        ,Item(name="통조림", weight=1)]
+    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!")  # EVENT
+
+    items: list[Item] = [Item(name="물병 500ml", weight=2), Item(
+        name="물병 500ml", weight=2), Item(name="통조림", weight=1)]
     for i in items:
         print(i.getName() + "아이템을 획득하였습니다.")
         player.inventory.append(i)
-    
+
     player.printInventory()
+
+
+def injureEvent():
+    """이벤트\n
+    물자 획득 이벤트, 물자 손실 이벤트, 체력 증감 이벤트, 상태 추가 및 제거 이벤트, 
+    물자 교환 이벤트, 전투 이벤트 등의 각종 이벤트가 발생한다.
+    """
+    decoName("타박상 이벤트")
+
+    print("돌뿌리에 걸려 넘어졌습니다.")  # EVENT
+
+    player.health -= 3
+    player.printHealth()
 
 
 def comeback():
@@ -105,13 +116,13 @@ def comeback():
     """
     decoName("쉘터 복귀")
 
-    while(True):
+    while (True):
         inputs = input("쉘터 복귀하시겠습니까? (Y/N) >>").upper()
         if inputs == "Y":
             return True
         elif inputs == "N":
             return False
-        elif inputs == "A": # death scenario for the test
+        elif inputs == "A":  # death scenario for the test
             player.setHealth(0)
             return True
 
@@ -124,14 +135,15 @@ def maintenance():
     decoName("정비")
 
     player.printHealth()
-    
-    if player.getIsDied(): # 사망할 시 예외 던짐
+
+    if player.getIsDied():  # 사망할 시 예외 던짐
         raise Death()
-        
-    player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
+
+    player.setHealth(player.getHealthMax())  # 체력을 최대치까지 회복
     print("체력 회복!")
     player.printHealth()
     player.printInventory()
+
 
 def main():
     """
@@ -142,22 +154,22 @@ def main():
     initializeMaintenance()
 
     try:
-        while(True):
+        while (True):
             global days
             days += 1
-            if explore(): # 탐험하면
-                event() # 이벤트가 발생하고
+            if explore():  # 탐험하면
+                event()  # 이벤트가 발생하고
 
-                if comeback(): # 쉘터에 복귀하면
-                    maintenance() # 정비할 수 있음
+                if comeback():  # 쉘터에 복귀하면
+                    maintenance()  # 정비할 수 있음
     except Death as e:
         print(e)
     except Exception as e:
         print("예외 발생:", e)
 
-
     print("프로그램 종료")
-    ## 프로그램 종료
+    # 프로그램 종료
+
 
 if __name__ == "__main__":
     main()
