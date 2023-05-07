@@ -1,6 +1,5 @@
 from decoName import decoName
 from Player import Player
-from Death import Death
 
 def maintenance(player: Player):
     """정비\n
@@ -11,9 +10,6 @@ def maintenance(player: Player):
 
     player.printHealth()
     
-    if player.getIsDied(): # 사망할 시 예외 던짐
-        raise Death()
-        
     player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
     print("체력 회복!")
     player.printHealth()

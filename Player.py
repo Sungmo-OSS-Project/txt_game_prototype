@@ -57,6 +57,7 @@ class Player:
         """
         if health <= 0:
             self.health = 0
+            Death(player=self).getIsDied() # 사망했는지 조회함
         elif health >= self.health_max:
             self.health = self.health_max
         else:
@@ -142,7 +143,28 @@ class Player:
         return self
 
 
+class Death(Exception):  # Death 클래스를 정의합니다. Exception 클래스를 상속받습니다.
+    """Death Exception Class"""
+    def __init__(self: "Death", player: Player = Player()) -> "Death":  # 생성자 메소드를 정의합니다.
+        # 부모 클래스의 생성자 메소드를 호출하며, 메시지를 전달합니다.
+        super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
+        self.player = player
+
+    def getIsDied(self: "Death") -> "Death":
+        if self.player.getIsDied():
+            raise self
+
+
 if __name__ == "__main__":
+    # example code
     p1 = Player()
+    p1.setHealthMax(100)
+
     p1.setHealth(100)
     p1.printHealth()
+
+    # 체력이 감소함
+    p1.setHealth(p1.getHealth() - 50)
+    p1.printHealth()
+
+    p1.setHealth(0) # 예외 발생
