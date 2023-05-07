@@ -93,14 +93,20 @@ class Player:
         return self
 
 
-    def getBuffs(self: "Player") -> dict:
-        """버프 반환"""
+    def getBuffs(self: "Player") -> list[Buff]:
+        """버프/디버프 반환"""
         return self.buffs
 
-    def setBuffs(self: "Player", buffs: dict) -> "Player":
-        """버프 설정"""
+    def setBuffs(self: "Player", buffs: list[Buff]) -> "Player":
+        """버프/디버프 설정"""
         self.buffs = buffs
         return self
+
+    def printBuffs(self: "Player") -> None:
+        """버프/디버프 출력"""
+        decoName("버프/디버프")
+        for i in self.buffs:
+            print(f"- {i.getName()} : {i.getLevel()}")
 
 
     def getInventory(self: "Player") -> list[Item]:

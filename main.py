@@ -1,10 +1,5 @@
 from Player import Player, Death
 
-# 버프에 관해서는 아직 구현되지 않음. 이벤트 처리 후 구현 예정.
-# from Buff import Buff
-# heal = Buff(name="치유", level=1)
-# poison = Buff(name="독", level=-1)
-
 from initializeMaintenance import initializeMaintenance
 from explore import explore
 from event import event

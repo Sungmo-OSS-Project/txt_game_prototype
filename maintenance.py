@@ -1,5 +1,6 @@
 from decoName import decoName
 from Player import Player
+from Events.Event import *
 
 def maintenance(player: Player):
     """정비\n
@@ -10,7 +11,6 @@ def maintenance(player: Player):
 
     player.printHealth()
     
-    player.setHealth(player.getHealthMax()) # 체력을 최대치까지 회복
-    print("체력 회복!")
-    player.printHealth()
+    GetHealthMaxEvent(player=player).trigger() # 체력을 최대치까지 회복
+    
     player.printInventory()
