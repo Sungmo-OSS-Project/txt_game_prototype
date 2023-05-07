@@ -1,4 +1,5 @@
 class Item():
+    """Item Class"""
     def __init__(self, name: str = str(), weight: int = int()) -> None:
         """Item 생성"""
         
