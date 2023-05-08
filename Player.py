@@ -57,7 +57,7 @@ class Player:
         """
         if health <= 0:
             self.health = 0
-            Death(player=self).getIsDied() # 사망했는지 조회함
+            Death(player=self).getIsDied() # 체력을 0 이하로 설정할 때, 사망했는지 조회함
         elif health >= self.health_max:
             self.health = self.health_max
         else:
@@ -113,7 +113,7 @@ class Player:
         """인벤토리 값 반환"""
         return self.inventory
 
-    def setInventory(self: "Player", inventory: list) -> "Player":
+    def setInventory(self: "Player", inventory: list[Item]) -> "Player":
         """인벤토리 값 설정"""
         self.inventory = inventory
         return self
