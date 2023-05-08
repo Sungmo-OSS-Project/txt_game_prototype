@@ -7,6 +7,7 @@ if __name__ == "__main__":
 from Player import Player
 from Item import Item
 from Buff import Buff
+from decoName import decoName
 
 class Event():
     """Event Class"""
@@ -33,6 +34,25 @@ class DecreaseHealthEvent(Event):
         print("체력이 1 감소합니다.")
         self.player.setHealth(self.player.getHealth() - 1)
         self.player.printHealth()
+
+#Uno's Event merged here
+class InjureEvent(Event):
+    """이벤트\n
+    물자 획득 이벤트, 물자 손실 이벤트, 체력 증감 이벤트, 상태 추가 및 제거 이벤트, 
+    물자 교환 이벤트, 전투 이벤트 등의 각종 이벤트가 발생한다.
+    """
+    def __init__(self: "InjureEvent", player: Player, name: str = str(), level: int = int(), description: str = str()) -> "InjureEvent":
+        super().__init__(name, level, description)
+        self.player = player
+
+    def trigger(self: "InjureEvent") -> None:
+        decoName("타박상 이벤트")
+
+        print("돌뿌리에 걸려 넘어졌습니다.")  # EVENT
+
+        self.player.setHealth(self.player.getHealth() - 3)
+        self.player.printHealth()
+
 
 class GetKnifeEvent(Event):
     def __init__(self: "GetKnifeEvent", player: Player, name: str = "나이프(아이템) 1개 인벤토리에 추가", level: int = 0, description: str = "당신은 길에 떨어져 있는 나이프를 주웠습니다.") -> "GetKnifeEvent":
