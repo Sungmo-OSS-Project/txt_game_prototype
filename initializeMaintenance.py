@@ -1,4 +1,3 @@
-from decoName import decoName
 from Player import Player
 from Item import Item
 
@@ -6,7 +5,7 @@ def initializeMaintenance(player: Player):
     """기초 정비\n
     쉘터 출발 이전에 아이템을 소지할 수 있다.
     """
-    decoName("기초 정비")
+    print("기초 정비")
 
     player.printHealth()
 

@@ -1,6 +1,5 @@
 from Item import Item
 from Buff import Buff
-from decoName import decoName
 
 class Player:
     """Player Class"""
@@ -104,7 +103,7 @@ class Player:
 
     def printBuffs(self) -> None:
         """버프/디버프 출력"""
-        decoName("버프/디버프")
+        print("버프/디버프")
         for i in self.buffs:
             print(f"- {i.getName()} : {i.getLevel()}")
 
@@ -120,7 +119,7 @@ class Player:
 
     def printInventory(self) -> None:
         """인벤토리 출력"""
-        decoName("인벤토리")
+        print("인벤토리")
         for item in self.inventory:
             print(f"- {item.getName()}(무게:{item.getWeight()})")
         return None

@@ -7,7 +7,6 @@ if __name__ == "__main__":
 from Player import Player
 from Item import Item
 from Buff import Buff
-from decoName import decoName
 
 class Event():
     """Event Class"""
@@ -50,7 +49,7 @@ class InjureEvent(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self: "InjureEvent") -> None:
-        decoName("타박상 이벤트")
+        print("타박상 이벤트")
 
         print("돌뿌리에 걸려 넘어졌습니다.")  # EVENT
 
@@ -81,7 +80,7 @@ class GetHealthMaxEvent(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self: "GetHealthMaxEvent") -> None:
-        decoName(self.name)
+        print(self.name)
         print(self.description)
         self.player.setHealth(self.player.getHealthMax()) # 최대 체력으로 회복
         self.player.printHealth()
@@ -94,7 +93,7 @@ class InfectedByZombiesEvent(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self: "InfectedByZombiesEvent") -> None:
-        decoName(self.name)
+        print(self.name)
         print(self.description)
         buffs: list[Buff] = self.player.getBuffs()
         buffs.append(Buff(name="독", level=-1))
@@ -110,7 +109,7 @@ class Get물병2병과통조림Event(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self: "Get물병2병과통조림Event") -> None:
-        decoName(self.name)
+        print(self.name)
         items: list[Item] = [Item(name="물병 500ml", weight=2)\
                         ,Item(name="물병 500ml", weight=2)\
                         ,Item(name="통조림", weight=1)]
