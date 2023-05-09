@@ -18,10 +18,13 @@ def main():
         while(True):
             days += 1
             if explore(days): # 탐험하면
-                event(player) # 이벤트가 발생하고
+                while (True):
+                    for i in range(3):
+                        event(player) # 이벤트가 발생하고
 
-                if comeback(player): # 쉘터에 복귀하면
-                    maintenance(player) # 정비할 수 있음
+                    if comeback(player): # 쉘터에 복귀하면
+                        break
+                maintenance(player) # 정비할 수 있음
     except Death as e:
         print(e)
     except:
