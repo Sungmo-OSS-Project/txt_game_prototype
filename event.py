@@ -18,10 +18,3 @@ def event(player: Player):
 
     # 그 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
     random.choice(이벤트목록).trigger()
-
-
-# example code
-if __name__ == "__main__":
-    임시플레이어: Player = Player()
-    # 단독으로 이벤트만 실행해보자!
-    event(player=임시플레이어)

@@ -1,9 +1,3 @@
-# 상위 폴더 모듈 접근.
-if __name__ == "__main__":
-    import sys
-    import os
-    sys.path.append(os.path.abspath("."))
-
 from Player import Player
 from Item import Item
 from Buff import Buff
@@ -118,15 +112,3 @@ class Get물병2병과통조림Event(Event):
             self.player.setInventory(self.player.getInventory() + [i] )
         
         self.player.printInventory()
-
-
-# example code
-if __name__ == "__main__":
-    player = Player()
-
-    DecreaseHealthEvent(player=player).trigger()
-    GetKnifeEvent(player=player).trigger()
-    GetHealthMaxEvent(player=player).trigger()
-    InfectedByZombiesEvent(player=player).trigger()
-    InjureEvent(player=player).trigger()
-    Get물병2병과통조림Event(player=player).trigger()

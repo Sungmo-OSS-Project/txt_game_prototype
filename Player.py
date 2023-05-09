@@ -158,18 +158,3 @@ class Death(Exception):  # Death 클래스를 정의합니다. Exception 클래�
     def getIsDied(self) -> "Death":
         if self.player.getIsDied():
             raise self
-
-
-# example code
-if __name__ == "__main__":
-    p1 = Player()
-    p1.setHealthMax(100)
-
-    p1.setHealth(100)
-    p1.printHealth()
-
-    # 체력이 감소함
-    p1.setHealth(p1.getHealth() - 50)
-    p1.printHealth()
-
-    p1.setHealth(0) # 예외 발생
