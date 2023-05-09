@@ -9,12 +9,7 @@ def event(player: Player):
     """
     print("이벤트")
     # 이벤트 목록을 가져온다.
-    이벤트목록: list[Event] =   [DecreaseHealthEvent(player=player),
-                                GetKnifeEvent(player=player),
-                                GetHealthMaxEvent(player=player),
-                                InfectedByZombiesEvent(player=player),
-                                InjureEvent(player=player),
-                                Get물병2병과통조림Event(player=player)]
+    이벤트목록: list[Event] =   [Event()]
 
     # 그 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
     random.choice(이벤트목록).trigger()

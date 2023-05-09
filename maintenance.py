@@ -9,7 +9,4 @@ def maintenance(player: Player):
     print("정비")
 
     player.printHealth()
-    
-    GetHealthMaxEvent(player=player).trigger() # 체력을 최대치까지 회복
-    
     player.printInventory()
