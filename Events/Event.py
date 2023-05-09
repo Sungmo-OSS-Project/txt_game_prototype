@@ -11,7 +11,7 @@ from decoName import decoName
 
 class Event():
     """Event Class"""
-    def __init__(self: "Event", name: str = str(), level: int = int(), description: str = str()) -> "Event":
+    def __init__(self, name: str = str(), level: int = int(), description: str = str()) -> None:
         """Event 생성자"""
         
         self.name: str = name
@@ -23,7 +23,7 @@ class Event():
         self.description: str = description
         """이벤트 설명"""
 
-    def trigger(self: "Event") -> None:
+    def trigger(self) -> None:
         """이벤트 실행"""
 
 class DecreaseHealthEvent(Event):

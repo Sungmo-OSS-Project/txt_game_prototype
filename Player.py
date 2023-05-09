@@ -4,7 +4,7 @@ from decoName import decoName
 
 class Player:
     """Player Class"""
-    def __init__(self: "Player") -> "Player":
+    def __init__(self) -> None:
         """Player 생성"""
 
         self.health: int = int(20)
@@ -45,13 +45,13 @@ class Player:
         """
 
 
-    def getHealth(self: "Player") -> int:
+    def getHealth(self) -> int:
         """
         체력 값을 반환
         """
         return self.health
 
-    def setHealth(self: "Player", health: int) -> "Player":
+    def setHealth(self, health: int) -> "Player":
         """
         체력 값을 설정
         """
@@ -64,7 +64,7 @@ class Player:
             self.health = health
         return self
 
-    def printHealth(self: "Player") -> None:
+    def printHealth(self) -> None:
         """체력 값을 출력"""
         print(f"체력: {self.health}/{self.health_max}")
         for i in range(self.health_max):
@@ -73,9 +73,9 @@ class Player:
             else:
                 print("□", end="")
         print()
-        return None
+
         
-    def getIsDied(self: "Player") -> bool:
+    def getIsDied(self) -> bool:
         """죽었는가 반환"""
         if self.health <= 0: # 체력이 0보다 작거나 같아지면 True
             return True
@@ -83,42 +83,42 @@ class Player:
             return False
 
 
-    def getHealthMax(self: "Player") -> int:
+    def getHealthMax(self) -> int:
         """최대 체력 값을 반환"""
         return self.health_max
 
-    def setHealthMax(self: "Player", max: int) -> "Player":
+    def setHealthMax(self, max: int) -> "Player":
         """최대 체력 값을 설정"""
         self.health_max = max
         return self
 
 
-    def getBuffs(self: "Player") -> list[Buff]:
+    def getBuffs(self) -> list[Buff]:
         """버프/디버프 반환"""
         return self.buffs
 
-    def setBuffs(self: "Player", buffs: list[Buff]) -> "Player":
+    def setBuffs(self, buffs: list[Buff]) -> "Player":
         """버프/디버프 설정"""
         self.buffs = buffs
         return self
 
-    def printBuffs(self: "Player") -> None:
+    def printBuffs(self) -> None:
         """버프/디버프 출력"""
         decoName("버프/디버프")
         for i in self.buffs:
             print(f"- {i.getName()} : {i.getLevel()}")
 
 
-    def getInventory(self: "Player") -> list[Item]:
+    def getInventory(self) -> list[Item]:
         """인벤토리 값 반환"""
         return self.inventory
 
-    def setInventory(self: "Player", inventory: list[Item]) -> "Player":
+    def setInventory(self, inventory: list[Item]) -> "Player":
         """인벤토리 값 설정"""
         self.inventory = inventory
         return self
 
-    def printInventory(self: "Player") -> None:
+    def printInventory(self) -> None:
         """인벤토리 출력"""
         decoName("인벤토리")
         for item in self.inventory:
@@ -126,11 +126,11 @@ class Player:
         return None
 
 
-    def getWeight(self: "Player") -> int:
+    def getWeight(self) -> int:
         """무게 값 반환"""
         return self.weight
 
-    def setWeight(self: "Player", weight: int) -> "Player":
+    def setWeight(self, weight: int) -> "Player":
         """무게 값 설정"""
         if weight >= 0 and weight <= self.weight_max:
             self.weight = weight
@@ -139,11 +139,11 @@ class Player:
             return "Out of Range"
 
 
-    def getWeightMax(self: "Player") -> int:
+    def getWeightMax(self) -> int:
         """최대 무게 값 반환"""
         return self.weight_max
 
-    def setWeightMax(self: "Player", max: int) -> "Player":
+    def setWeightMax(self, max: int) -> "Player":
         """최대 무게 값 설정"""
         self.weight_max = max
         return self
@@ -151,12 +151,12 @@ class Player:
 
 class Death(Exception):  # Death 클래스를 정의합니다. Exception 클래스를 상속받습니다.
     """Death Exception Class"""
-    def __init__(self: "Death", player: Player = Player()) -> "Death":  # 생성자 메소드를 정의합니다.
+    def __init__(self, player: Player) -> None:  # 생성자 메소드를 정의합니다.
         # 부모 클래스의 생성자 메소드를 호출하며, 메시지를 전달합니다.
         super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
         self.player = player
 
-    def getIsDied(self: "Death") -> "Death":
+    def getIsDied(self) -> "Death":
         if self.player.getIsDied():
             raise self
 
