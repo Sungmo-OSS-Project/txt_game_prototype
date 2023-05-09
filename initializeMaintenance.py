@@ -26,22 +26,16 @@ def initializeMaintenance(player: Player):
     for i, item in enumerate(takableItemsList):
         print(f"{i+1}. {item.getName()}(무게:{item.getWeight()})")
 
-    # 인벤토리 리스트 생성
-    inventory: list[Item] = list()
-
     # 여러개 번호를 선택해서 인벤토리 list에 넣기
     try:
         selected_items = input("인벤토리에 추가할 아이템 번호를 선택하세요 (숫자를 띄어쓰기로 구분): ")
         selected_items = selected_items.split()  # 입력받은 문자열을 공백을 기준으로 분리하여 리스트로 변환
 
         for i in selected_items:
-            inventory.append(takableItemsList[int(i)-1])  # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
+            player.inventory.addItem(takableItemsList[int(i)-1])  # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
     except IndexError:
         pass
 
-    player.setInventory(inventory)
-
     # 인벤토리 목록 출력
-    player.printInventory()
-    
+    player.inventory.printStorage()
     print("을 가지고 쉘터로 이동합니다.")

@@ -1,5 +1,5 @@
-from Item import Item
 from Buff import Buff
+from Storage import Storage
 
 class Player:
     """Player Class"""
@@ -26,22 +26,12 @@ class Player:
         지속적인 체력 감소, 특정 행동의 제약 등을 유발하는 기능.
         """
 
-        self.inventory: list[Item] = list()
+        self.inventory: Storage = Storage()
         """인벤토리\n
         긍정적 상태처럼 특정 선택지를 선택할 수 있다.
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
 
-        self.weight: int = int(0)
-        """무게\n
-        아이템마다 무게가 다르며, 플레이어가 한 번에 소지할 수 있는 아이템 수량에 제한을 두는 기능이다.
-        """
-
-        self.weight_max: int = int(20)
-        """최대 무게 제한\n
-        플레이어는 시작 시 최대무게(weight_max)가 설정된다.
-        특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
-        """
 
 
     def getHealth(self) -> int:
@@ -106,47 +96,6 @@ class Player:
         print("버프/디버프")
         for i in self.buffs:
             print(f"- {i.getName()} : {i.getLevel()}")
-
-
-    def getInventory(self) -> list[Item]:
-        """인벤토리 값 반환"""
-        return self.inventory
-
-    def setInventory(self, inventory: list[Item]) -> "Player":
-        """인벤토리 값 설정"""
-        self.inventory = inventory
-        return self
-
-    def printInventory(self) -> None:
-        """인벤토리 출력"""
-        print("인벤토리")
-        for item in self.inventory:
-            print(f"- {item.getName()}(무게:{item.getWeight()})")
-        return None
-
-
-    def getWeight(self) -> int:
-        """무게 값 반환"""
-        return self.weight
-
-    def setWeight(self, weight: int) -> "Player":
-        """무게 값 설정"""
-        if weight >= 0 and weight <= self.weight_max:
-            self.weight = weight
-            return self
-        else:
-            return "Out of Range"
-
-
-    def getWeightMax(self) -> int:
-        """최대 무게 값 반환"""
-        return self.weight_max
-
-    def setWeightMax(self, max: int) -> "Player":
-        """최대 무게 값 설정"""
-        self.weight_max = max
-        return self
-
 
 class Death(Exception):
     """Death Class\n

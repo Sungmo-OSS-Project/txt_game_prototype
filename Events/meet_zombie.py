@@ -23,7 +23,9 @@ class Meet_zombie(Event):
         if selection == "1":
             print("당신은 좀비와 싸워 이겼습니다.") #확률적 승리는 미구현 상태이므로 임시적으로 확정 승리로 고정
             print("좀비의 바지 주머니에서 나이프 한 자루를 발견했습니다.")
-            #아이템 획득 코드 추가 예정
+            
+            self.player.inventory.addItem(knife) #아이템 추가
+            
         elif selection == "2":
             print("당신은 조용히 우회하여 지나갑니다.")
             print("다행히 좀비는 당신을 눈치채지 못했습니다.")
