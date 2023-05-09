@@ -1,5 +1,6 @@
 from Player import Player
 from Item import Item
+from item_dict import *
 
 def initializeMaintenance(player: Player):
     """기초 정비\n
@@ -14,13 +15,11 @@ def initializeMaintenance(player: Player):
 
     # 가져갈 수 있는 아이템 목록 리스트
     takableItemsList: list[Item] = list()  # 빈 리스트 생성
-    takableItemsList.append(Item(name="나이프", weight=1))
-    takableItemsList.append(Item(name="식량", weight=2))
-    takableItemsList.append(Item(name="물병 500ml", weight=2))
-    takableItemsList.append(Item(name="손전등", weight=1))
-    takableItemsList.append(Item(name="의약품", weight=2))
-    takableItemsList.append(Item(name="라이터", weight=1))
-    takableItemsList.append(Item(name="지도", weight=1))
+    takableItemsList.append(knife)
+    takableItemsList.append(food)
+    takableItemsList.append(water_bottle)
+    takableItemsList.append(flashLight)
+    takableItemsList.append(medikit)
     
     # 아이템 목록 출력
     print("소지 가능한 아이템 목록:")

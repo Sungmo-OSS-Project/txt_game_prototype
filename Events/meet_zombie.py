@@ -1,5 +1,7 @@
 from Events.Event import Event
 from Player import Player
+from item_dict import *
+
 class Meet_zombie(Event):
     """
     선택지형 이벤트
