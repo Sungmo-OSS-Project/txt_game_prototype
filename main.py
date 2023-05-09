@@ -1,17 +1,10 @@
-from Player import Player
-from Item import Item # 아이템을 직접적으로 main 파일에서 생성하지 않음. 나중에 삭제 예정.
-from Death import Death
+from Player import Player, Death
 
-# 버프에 관해서는 아직 구현되지 않음. 이벤트 처리 후 구현 예정.
-# from Buff import Buff
-# heal = Buff(name="치유", level=1)
-# poison = Buff(name="독", level=-1)
-
-from initializeMaintenance import initializeMaintenance
-from explore import explore
-from event import event
-from comeback import comeback
-from maintenance import maintenance
+from initializeMaintenance import initializeMaintenance # 기초 정비
+from explore import explore # 탐사 출발
+from event import event # 이벤트
+from comeback import comeback # 쉘터 복귀
+from maintenance import maintenance # 정비
 
 def main():
     """프로그램 시작"""
@@ -20,9 +13,8 @@ def main():
     player = Player()
     days = int(0) # 지난 날짜 수
 
-    initializeMaintenance(player)
-
     try:
+        initializeMaintenance(player)
         while(True):
             days += 1
             if explore(days): # 탐험하면
@@ -32,10 +24,10 @@ def main():
                     maintenance(player) # 정비할 수 있음
     except Death as e:
         print(e)
-    except Exception as e:
-        print("예외 발생:", e)
+    except:
+        raise
 
-    print("프로그램 종료")
+    """프로그램 종료"""
 
 if __name__ == "__main__":
     main()

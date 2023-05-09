@@ -1,27 +1,15 @@
-from decoName import decoName
-from Item import Item
 from Player import Player
 from Events.Event import *
+import random
 
 def event(player: Player):
     """이벤트\n
     물자 획득 이벤트, 물자 손실 이벤트, 체력 증감 이벤트, 상태 추가 및 제거 이벤트, 
     물자 교환 이벤트, 전투 이벤트 등의 각종 이벤트가 발생한다.
     """
-    decoName("이벤트")
+    print("이벤트")
+    # 이벤트 목록을 가져온다.
+    이벤트목록: list[Event] =   [Event()]
 
-    # 구식 이벤트. 정리될 예정.
-    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!")
-    
-    items: list[Item] = [Item(name="물병 500ml", weight=2)\
-                        ,Item(name="물병 500ml", weight=2)\
-                        ,Item(name="통조림", weight=1)]
-    for i in items:
-        print(i.getName() + "아이템을 획득하였습니다.")
-        player.inventory.append(i)
-    
-    player.printInventory()
-
-    # 예시 이벤트 실행 !!
-    DecreaseHealthEvent(player=player).trigger() 
-    GetKnifeEvent(player=player).trigger()
+    # 그 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
+    random.choice(이벤트목록).trigger()

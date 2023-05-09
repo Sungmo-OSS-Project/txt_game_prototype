@@ -3,10 +3,10 @@ class Item():
     def __init__(self, name: str = str(), weight: int = int()) -> None:
         """Item 생성"""
         
-        self.name = name
+        self.name: str = name
         """Item의 이름"""
 
-        self.weight = weight
+        self.weight: int = weight
         """Item의 무게"""
 
 
@@ -14,17 +14,17 @@ class Item():
         """Item의 이름을 반환"""
         return self.name
 
-    def setName(self, name: str) -> str:
+    def setName(self, name: str) -> "Item":
         """Item의 이름을 설정"""
         self.name = name
-        return self.name
+        return self
 
 
     def getWeight(self) -> int:
         """Item의 무게를 반환"""
         return self.weight
 
-    def setWeight(self, weight: int) -> int:
+    def setWeight(self, weight: int) -> "Item":
         """Item의 무게를 설정"""
         self.weight = weight
-        return self.weight
+        return self

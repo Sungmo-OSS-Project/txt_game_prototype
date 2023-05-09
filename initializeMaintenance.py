@@ -1,4 +1,3 @@
-from decoName import decoName
 from Player import Player
 from Item import Item
 
@@ -6,7 +5,7 @@ def initializeMaintenance(player: Player):
     """기초 정비\n
     쉘터 출발 이전에 아이템을 소지할 수 있다.
     """
-    decoName("기초 정비")
+    print("기초 정비")
 
     player.printHealth()
 
@@ -20,13 +19,9 @@ def initializeMaintenance(player: Player):
     takableItemsList.append(Item(name="물병 500ml", weight=2))
     takableItemsList.append(Item(name="손전등", weight=1))
     takableItemsList.append(Item(name="의약품", weight=2))
-    takableItemsList.append(Item(name="등산화", weight=3))
     takableItemsList.append(Item(name="라이터", weight=1))
     takableItemsList.append(Item(name="지도", weight=1))
-    takableItemsList.append(Item(name="전지", weight=2))
-    takableItemsList.append(Item(name="카메라", weight=2))
-    takableItemsList.append(Item(name="충전기", weight=1))
-
+    
     # 아이템 목록 출력
     print("소지 가능한 아이템 목록:")
     for i, item in enumerate(takableItemsList):
