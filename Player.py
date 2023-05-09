@@ -161,8 +161,8 @@ class Death(Exception):  # Death 클래스를 정의합니다. Exception 클래�
             raise self
 
 
+# example code
 if __name__ == "__main__":
-    # example code
     p1 = Player()
     p1.setHealthMax(100)
 

@@ -1,7 +1,7 @@
-from decoName import decoName
-from Item import Item
 from Player import Player
+from decoName import decoName
 from Events.Event import *
+import random
 
 def event(player: Player):
     """이벤트\n
@@ -9,19 +9,20 @@ def event(player: Player):
     물자 교환 이벤트, 전투 이벤트 등의 각종 이벤트가 발생한다.
     """
     decoName("이벤트")
+    # 이벤트 목록을 가져온다.
+    이벤트목록: list[Event] =   [DecreaseHealthEvent(player=player),
+                                GetKnifeEvent(player=player),
+                                GetHealthMaxEvent(player=player),
+                                InfectedByZombiesEvent(player=player),
+                                InjureEvent(player=player),
+                                Get물병2병과통조림Event(player=player)]
 
-    # 구식 이벤트. 정리될 예정.
-    print("어떤 이벤트가 발생하여 무언가를 선택했습니다!")
-    
-    items: list[Item] = [Item(name="물병 500ml", weight=2)\
-                        ,Item(name="물병 500ml", weight=2)\
-                        ,Item(name="통조림", weight=1)]
-    for i in items:
-        print(i.getName() + "아이템을 획득하였습니다.")
-        player.inventory.append(i)
-    
-    player.printInventory()
+    # 그 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
+    random.choice(이벤트목록).trigger()
 
-    # 예시 이벤트 실행 !!
-    DecreaseHealthEvent(player=player).trigger() 
-    GetKnifeEvent(player=player).trigger()
+
+# example code
+if __name__ == "__main__":
+    임시플레이어: Player = Player()
+    # 단독으로 이벤트만 실행해보자!
+    event(player=임시플레이어)
