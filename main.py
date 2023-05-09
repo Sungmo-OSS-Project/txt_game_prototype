@@ -1,10 +1,10 @@
 from Player import Player, Death
 
-from initializeMaintenance import initializeMaintenance
-from explore import explore
-from event import event
-from comeback import comeback
-from maintenance import maintenance
+from initializeMaintenance import initializeMaintenance # 기초 정비
+from explore import explore # 탐사 출발
+from event import event # 이벤트
+from comeback import comeback # 쉘터 복귀
+from maintenance import maintenance # 정비
 
 def main():
     """프로그램 시작"""
@@ -27,7 +27,7 @@ def main():
     except:
         raise
 
-    print("프로그램 종료")
+    """프로그램 종료"""
 
 if __name__ == "__main__":
     main()
