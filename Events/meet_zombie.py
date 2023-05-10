@@ -17,6 +17,7 @@ class Meet_zombie(Event):
     def trigger(self) -> None:
         print("당신은 당신이 가고자 하는 길을 가로막고 있는 좀비 한 마리를 발견했습니다")
         print("좀비와 싸우거나 길을 조금 우회할 수 있습니다.")
+        
         print("1. 좀비와 싸운다")
         print("2. 우회한다.")
         selection = input("1, 2 : ")
