@@ -14,32 +14,47 @@ class Storage:
         플레이어는 시작 시 최대무게(weight_max)가 설정된다.
         특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
         """
-    
+
+    def getItem(self) -> list[Item]:
+        """아이템 리스트를 반환"""
+        return self.storage
+
+    def setItem(self, storage: list[Item]) -> "Storage":
+        """아이템 목록을 저장"""
+        self.storage = storage
+        self.setWeight()
+        return self
+
     def addItem(self, item):
         self.storage.append(item)
+        self.setWeight()
     
     def removeItem(self, item):
         self.storage.remove(item)
+        self.setWeight()
     
     def printStorage(self) -> None:
         """인벤토리 출력"""
         print("인벤토리")
         for item in self.storage:
             print(f"- {item.getName()}(무게:{item.getWeight()})")
+        print(f"용량: {self.weight}/{self.weight_max}")
         return None
 
     def getWeight(self) -> int:
         """무게 값 반환"""
         return self.weight
 
-    def setWeight(self, weight: int) -> "Storage":
+    def setWeight(self):
         """무게 값 설정"""
-        if weight >= 0 and weight <= self.weight_max:
-            self.weight = weight
-            return self
+        totalWeight = int(0)
+        for i in self.storage:
+            totalWeight += i.getWeight()
+        if totalWeight > self.weight_max:
+            print("용량 초과")
+            # 아이템 빼내는 기능 구현 필요
         else:
-            return "Out of Range"
-
+            self.weight = totalWeight
 
     def getWeightMax(self) -> int:
         """최대 무게 값 반환"""

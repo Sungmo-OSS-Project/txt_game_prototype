@@ -1,5 +1,5 @@
 from Player import Player
-from Item import Item
+from Storage import Storage
 from item_dict import *
 
 def initializeMaintenance(player: Player):
@@ -14,16 +14,16 @@ def initializeMaintenance(player: Player):
     print("쉘터 출발 이전에 아이템을 소지할 수 있습니다.")
 
     # 가져갈 수 있는 아이템 목록 리스트
-    takableItemsList: list[Item] = list()  # 빈 리스트 생성
-    takableItemsList.append(knife)
-    takableItemsList.append(food)
-    takableItemsList.append(water_bottle)
-    takableItemsList.append(flashLight)
-    takableItemsList.append(medikit)
-    
+    takableItemsList: Storage = Storage()  # 빈 아이템 목록 리스트
+    takableItemsList.addItem(knife)
+    takableItemsList.addItem(food)
+    takableItemsList.addItem(water_bottle)
+    takableItemsList.addItem(flashLight)
+    takableItemsList.addItem(medikit)
+
     # 아이템 목록 출력
     print("소지 가능한 아이템 목록:")
-    for i, item in enumerate(takableItemsList):
+    for i, item in enumerate(takableItemsList.getItem()):
         print(f"{i+1}. {item.getName()}(무게:{item.getWeight()})")
 
     # 여러개 번호를 선택해서 인벤토리 list에 넣기
@@ -32,7 +32,8 @@ def initializeMaintenance(player: Player):
         selected_items = selected_items.split()  # 입력받은 문자열을 공백을 기준으로 분리하여 리스트로 변환
 
         for i in selected_items:
-            player.inventory.addItem(takableItemsList[int(i)-1])  # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
+            # 선택한 번호에 해당하는 아이템을 인벤토리 리스트에 추가
+            player.inventory.addItem(takableItemsList.getItem()[int(i)-1])
     except IndexError:
         pass
 
