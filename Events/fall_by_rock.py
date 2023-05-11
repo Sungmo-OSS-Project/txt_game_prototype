@@ -2,6 +2,7 @@ from Events.Event import Event
 from Player import Player
 from item_dict import *
 
+
 class Fall_by_rock(Event):
     """
     단발성 이벤트

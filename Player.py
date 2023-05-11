@@ -1,6 +1,7 @@
 from Buff import Buff
 from Storage import Storage
 
+
 class Player:
     """Player Class"""
     def __init__(self) -> None:
@@ -32,8 +33,6 @@ class Player:
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
 
-
-
     def getHealth(self) -> int:
         """
         체력 값을 반환
@@ -46,7 +45,7 @@ class Player:
         """
         if health <= 0:
             self.health = 0
-            Death(player=self).getIsDied() # 체력을 0 이하로 설정할 때, 사망했는지 조회함
+            Death(player=self).getIsDied()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함
         elif health >= self.health_max:
             self.health = self.health_max
         else:
@@ -63,14 +62,12 @@ class Player:
                 print("□", end="")
         print()
 
-        
     def getIsDied(self) -> bool:
         """죽었는가 반환"""
-        if self.health <= 0: # 체력이 0보다 작거나 같아지면 True
+        if self.health <= 0:  # 체력이 0보다 작거나 같아지면 True
             return True
         else:
             return False
-
 
     def getHealthMax(self) -> int:
         """최대 체력 값을 반환"""
@@ -80,7 +77,6 @@ class Player:
         """최대 체력 값을 설정"""
         self.health_max = max
         return self
-
 
     def getBuffs(self) -> list[Buff]:
         """버프/디버프 반환"""
@@ -96,6 +92,7 @@ class Player:
         print("버프/디버프")
         for i in self.buffs:
             print(f"- {i.getName()} : {i.getLevel()}")
+
 
 class Death(Exception):
     """Death Class\n

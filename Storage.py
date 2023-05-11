@@ -1,9 +1,10 @@
 from Item import Item
 
+
 class Storage:
     def __init__(self) -> None:
         self.storage: list[Item] = list()
-        
+
         self.weight: int = int(0)
         """무게\n
         아이템마다 무게가 다르며, 플레이어가 한 번에 소지할 수 있는 아이템 수량에 제한을 두는 기능이다.
@@ -28,11 +29,11 @@ class Storage:
     def addItem(self, item):
         self.storage.append(item)
         self.setWeight()
-    
+
     def removeItem(self, item):
         self.storage.remove(item)
         self.setWeight()
-    
+
     def printStorage(self) -> None:
         """인벤토리 출력"""
         print("인벤토리")

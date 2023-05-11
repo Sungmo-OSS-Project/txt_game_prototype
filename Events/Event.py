@@ -2,7 +2,7 @@ class Event():
     """Event Class"""
     def __init__(self, name: str = str(), level: int = int(), description: str = str()) -> None:
         """Event 생성자"""
-        
+
         self.name: str = name
         """이벤트 이름"""
 
