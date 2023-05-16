@@ -2,7 +2,12 @@ from Item import Item
 
 
 class Storage:
+    """Storage Class\n
+    아이템을 저장하는 공간을 담당하는 클래스입니다.
+    """
     def __init__(self) -> None:
+        """init Storage"""
+
         self.storage: list[Item] = list()
 
         self.weight: int = int(0)
@@ -26,11 +31,11 @@ class Storage:
         self.setWeight()
         return self
 
-    def addItem(self, item):
+    def addItem(self, item: Item):
         self.storage.append(item)
         self.setWeight()
 
-    def removeItem(self, item):
+    def removeItem(self, item: Item):
         self.storage.remove(item)
         self.setWeight()
 

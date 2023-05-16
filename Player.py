@@ -101,6 +101,6 @@ class Death(Exception):
         super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
         self.player = player
 
-    def getIsDied(self) -> "Death":
+    def getIsDied(self) -> None:
         if self.player.getIsDied():
             raise self
