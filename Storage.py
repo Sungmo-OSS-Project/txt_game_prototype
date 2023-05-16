@@ -1,3 +1,4 @@
+from typing import List
 from Item import Item
 
 
@@ -8,7 +9,7 @@ class Storage:
     def __init__(self) -> None:
         """init Storage"""
 
-        self.storage: list[Item] = list()
+        self.storage: List[Item] = list()
 
         self.weight: int = int(0)
         """무게\n
@@ -21,11 +22,11 @@ class Storage:
         특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
         """
 
-    def getItem(self) -> list[Item]:
+    def getItem(self) -> List[Item]:
         """아이템 리스트를 반환"""
         return self.storage
 
-    def setItem(self, storage: list[Item]) -> "Storage":
+    def setItem(self, storage: List[Item]) -> "Storage":
         """아이템 목록을 저장"""
         self.storage = storage
         self.setWeight()

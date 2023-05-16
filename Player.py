@@ -1,3 +1,4 @@
+from typing import List
 from Buff import Buff
 from Storage import Storage
 
@@ -19,7 +20,7 @@ class Player:
         """최대 체력\n
         특정 이벤트를 통하여 최대 체력에 증감이 있을 수 있음."""
 
-        self.buffs: list[Buff] = list()
+        self.buffs: List[Buff] = list()
         """각종 긍정적/부정적 상태\n
         긍정적 상태(+) :
         각종 이벤트의 선택지(분기)에서 특정 상태가 존재할 경우 선택할 수 있는 분기가 활성화 또는 추가됨.\n
@@ -78,11 +79,11 @@ class Player:
         self.health_max = max
         return self
 
-    def getBuffs(self) -> list[Buff]:
+    def getBuffs(self) -> List[Buff]:
         """버프/디버프 반환"""
         return self.buffs
 
-    def setBuffs(self, buffs: list[Buff]) -> "Player":
+    def setBuffs(self, buffs: List[Buff]) -> "Player":
         """버프/디버프 설정"""
         self.buffs = buffs
         return self
