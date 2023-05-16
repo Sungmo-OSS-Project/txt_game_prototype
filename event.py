@@ -5,7 +5,7 @@ import random
 #추후에 이벤트가 여러개가 될 경우 Events 폴더에서 이벤트를 가져오도록 할 예정
 from Events.fall_by_rock import Fall_by_rock 
 from Events.meet_zombie import Meet_zombie
-from Events.first import first
+from Events.trap import first
 
 def event(player: Player):
     """이벤트\n
