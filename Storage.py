@@ -16,12 +16,12 @@ class Storage:
         특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
         """
 
-    def addItem(self, item):
-        print(f"{item}을 획득했습니다.")
+    def addItem(self, item: Item):
+        print(f"{item.getName()}을 획득했습니다.")
         self.storage.append(item)
 
-    def removeItem(self, item):
-        print(f"{item}을 버렸습니다.")
+    def removeItem(self, item: Item):
+        print(f"{item.getName()}을 버렸습니다.")
         self.storage.remove(item)
 
     def printStorage(self) -> None:
