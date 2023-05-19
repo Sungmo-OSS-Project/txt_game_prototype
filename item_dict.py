@@ -14,3 +14,5 @@ crowbar = Item(name="쇠지렛대", weight=3)
 flashLight = Item(name="손전등", weight=2)
 tomato_can = Item(name="토마토 통조림", weight=2)
 milk = Item(name="우유", weight=1)
+shovel = Item(name="삽", weight=2)
+
