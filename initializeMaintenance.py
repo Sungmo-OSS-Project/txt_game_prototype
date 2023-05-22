@@ -18,7 +18,7 @@ def initializeMaintenance(player: Player):
     # 가져갈 수 있는 아이템 목록 리스트
     takableItemsList: Storage = Storage()  # 빈 아이템 목록 리스트
     takableItemsList.addItem(knife)
-    takableItemsList.addItem(food)
+    takableItemsList.addItem(tomato_can)
     takableItemsList.addItem(water_bottle)
     takableItemsList.addItem(flashLight)
     takableItemsList.addItem(medikit)
