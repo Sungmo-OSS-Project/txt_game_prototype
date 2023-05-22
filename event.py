@@ -1,6 +1,13 @@
 from Player import Player
-from Events.이벤트목록 import 이벤트목록  # 이벤트 목록들이 담겨져 있음
+from Events.fall_by_rock import Fall_by_rock
+from Events.meet_zombie import Meet_zombie
 import random
+
+이벤트목록 = [
+    Fall_by_rock,
+    Meet_zombie,
+]
+"""이벤트 클래스들이 list형으로 담겨져 있음"""
 
 
 def event(player: Player):
@@ -11,4 +18,5 @@ def event(player: Player):
     print("이벤트")
 
     # 이벤트목록 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
-    random.choice(이벤트목록)(player).trigger()
+    발생할이벤트 = random.choice(이벤트목록)
+    발생할이벤트(player=player).trigger()
