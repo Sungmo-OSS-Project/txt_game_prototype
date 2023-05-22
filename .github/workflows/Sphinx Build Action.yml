@@ -50,7 +50,7 @@ jobs:
     # # =============================== write Permissions가 있으면 해결될 것 같은 주석
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/docs'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs/build/html
