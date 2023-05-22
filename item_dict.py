@@ -3,8 +3,8 @@ from Item import Item
 인게임에서 사용할 아이템 목록
 아이템명, 무게를 표기
 """
-#아이템 추가할 때 참고하세요
-sample = Item(name = "아이템이름", weight = int())
+# 아이템 추가할 때 참고하세요
+sample = Item(name="아이템이름", weight=int())
 
 #변수명 
 knife = Item(name = "나이프", weight = 1)

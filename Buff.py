@@ -9,7 +9,6 @@ class Buff():
         self.level: int = level
         """Buff의 레벨"""
 
-
     def getName(self) -> str:
         """Buff의 이름을 반환"""
         return self.name
@@ -18,7 +17,6 @@ class Buff():
         """Buff의 이름을 설정"""
         self.name = name
         return self
-
 
     def getLevel(self) -> int:
         """Buff의 레벨을 반환"""
