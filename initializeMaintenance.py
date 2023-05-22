@@ -1,5 +1,5 @@
 from Player import Player
-from item_dict import knife, tomato_can, water_bottle, flashLight, medikit
+from item_dict import item_dict
 
 
 def initializeMaintenance(player: Player):
@@ -12,11 +12,11 @@ def initializeMaintenance(player: Player):
     player.printHealth()
 
     # 기본 아이템 제공
-    player.inventory.addItem(knife)
-    player.inventory.addItem(tomato_can)
-    player.inventory.addItem(water_bottle)
-    player.inventory.addItem(flashLight)
-    player.inventory.addItem(medikit)
+    player.inventory.addItem(item_dict["나이프"])
+    player.inventory.addItem(item_dict["토마토 통조림"])
+    player.inventory.addItem(item_dict["생수"])
+    player.inventory.addItem(item_dict["손전등"])
+    player.inventory.addItem(item_dict["구급상자"])
 
     # 인벤토리 목록 출력
     player.inventory.printStorage()
