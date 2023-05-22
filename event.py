@@ -5,7 +5,7 @@ import random
 #추후에 이벤트가 여러개가 될 경우 Events 폴더에서 이벤트를 가져오도록 할 예정
 from Events.fall_by_rock import Fall_by_rock 
 from Events.meet_zombie import Meet_zombie
-from Events.trap import first
+from Events.trap import Trap
 
 def event(player: Player):
     """이벤트\n
@@ -16,7 +16,7 @@ def event(player: Player):
     # 이벤트 목록을 가져온다. 추후 Events 폴더에서 이벤트를 가져오도록 할 예정
     이벤트목록: list[Event] =   [Fall_by_rock(player),
                                 Meet_zombie(player),
-                                first(player)]
+                                Trap(player)]
 
     # 그 중에 랜덤으로 이벤트 하나 뽑아서 실행한다.
     random.choice(이벤트목록).trigger()
