@@ -33,13 +33,15 @@ class Storage:
         return self
 
     def addItem(self, item: Item):
+        print(f"{item.getName()}을 획득했습니다.")
         self.storage.append(item)
         self.setWeight()
 
     def removeItem(self, item: Item):
+        print(f"{item.getName()}을 버렸습니다.")
         self.storage.remove(item)
         self.setWeight()
-
+    
     def printStorage(self) -> None:
         """인벤토리 출력"""
         print("인벤토리")
