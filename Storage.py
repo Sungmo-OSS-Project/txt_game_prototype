@@ -32,29 +32,28 @@ class Storage:
         self.setWeight()
         return self
 
-    def addItem(self, item: Item):
+    def addItem(self, item: Item) -> None:
         print(f"{item.getName()}을 획득했습니다.")
         self.storage.append(item)
         self.setWeight()
 
-    def removeItem(self, item: Item):
+    def removeItem(self, item: Item) -> None:
         print(f"{item.getName()}을 버렸습니다.")
         self.storage.remove(item)
         self.setWeight()
-    
+
     def printStorage(self) -> None:
         """인벤토리 출력"""
         print("인벤토리")
         for item in self.storage:
             print(f"- {item.getName()}(무게:{item.getWeight()})")
         print(f"용량: {self.weight}/{self.weight_max}")
-        return None
 
     def getWeight(self) -> int:
         """무게 값 반환"""
         return self.weight
 
-    def setWeight(self):
+    def setWeight(self) -> None:
         """무게 값 설정"""
         totalWeight = int(0)
         for i in self.storage:
