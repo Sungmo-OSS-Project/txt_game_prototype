@@ -10,6 +10,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../repo'))
 
 project = '쉘터 서바이벌: 좀비 아포칼립스'
 copyright = '2023, Halozhan'
@@ -30,4 +31,5 @@ language = 'ko'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+# html_static_path = ['_static']
+html_static_path = []

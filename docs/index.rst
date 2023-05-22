@@ -10,15 +10,20 @@ Welcome to 쉘터 서바이벌: 좀비 아포칼립스's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. toctree::
-   :maxdepth: 2
+.. automodule:: Events.Event
+   :members:
 
-   docs
+.. automodule:: Item
+   :members:
 
-.. toctree::
-   :maxdepth: 2
+.. automodule:: Player
+   :members:
+   
+.. automodule:: Storage
+   :members:
 
-   modules
+.. automodule:: Buff
+   :members:
 
 Indices and tables
 ==================
