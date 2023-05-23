@@ -1,5 +1,7 @@
+from typing import List
 from Buff import Buff
 from Storage import Storage
+
 
 class Player:
     """Player Class"""
@@ -18,7 +20,7 @@ class Player:
         """최대 체력\n
         특정 이벤트를 통하여 최대 체력에 증감이 있을 수 있음."""
 
-        self.buffs: list[Buff] = list()
+        self.buffs: List[Buff] = list()
         """각종 긍정적/부정적 상태\n
         긍정적 상태(+) :
         각종 이벤트의 선택지(분기)에서 특정 상태가 존재할 경우 선택할 수 있는 분기가 활성화 또는 추가됨.\n
@@ -32,8 +34,6 @@ class Player:
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
 
-
-
     def getHealth(self) -> int:
         """
         체력 값을 반환
@@ -46,7 +46,7 @@ class Player:
         """
         if health <= 0:
             self.health = 0
-            Death(player=self).getIsDied() # 체력을 0 이하로 설정할 때, 사망했는지 조회함
+            Death(player=self).getIsDied()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함
         elif health >= self.health_max:
             self.health = self.health_max
         else:
@@ -63,14 +63,12 @@ class Player:
                 print("□", end="")
         print()
 
-        
     def getIsDied(self) -> bool:
         """죽었는가 반환"""
-        if self.health <= 0: # 체력이 0보다 작거나 같아지면 True
+        if self.health <= 0:  # 체력이 0보다 작거나 같아지면 True
             return True
         else:
             return False
-
 
     def getHealthMax(self) -> int:
         """최대 체력 값을 반환"""
@@ -81,12 +79,11 @@ class Player:
         self.health_max = max
         return self
 
-
-    def getBuffs(self) -> list[Buff]:
+    def getBuffs(self) -> List[Buff]:
         """버프/디버프 반환"""
         return self.buffs
 
-    def setBuffs(self, buffs: list[Buff]) -> "Player":
+    def setBuffs(self, buffs: List[Buff]) -> "Player":
         """버프/디버프 설정"""
         self.buffs = buffs
         return self
@@ -97,6 +94,7 @@ class Player:
         for i in self.buffs:
             print(f"- {i.getName()} : {i.getLevel()}")
 
+
 class Death(Exception):
     """Death Class\n
     Exception Class를 상속받습니다."""
@@ -104,6 +102,6 @@ class Death(Exception):
         super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
         self.player = player
 
-    def getIsDied(self) -> "Death":
+    def getIsDied(self) -> None:
         if self.player.getIsDied():
             raise self
