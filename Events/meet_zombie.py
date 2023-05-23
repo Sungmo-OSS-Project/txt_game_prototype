@@ -1,6 +1,6 @@
 from Events.Event import Event
 from Player import Player
-from item_dict import item_dict
+import item_dict
 
 
 class Meet_zombie(Event):
@@ -27,7 +27,7 @@ class Meet_zombie(Event):
             print("당신은 좀비와 싸워 이겼습니다.")  # 확률적 승리는 미구현 상태이므로 임시적으로 확정 승리로 고정
             print("좀비의 바지 주머니에서 나이프 한 자루를 발견했습니다.")
 
-            self.player.inventory.addItem(item_dict["나이프"])  # 아이템 추가
+            self.player.inventory.addItem(item_dict.knife)  # 아이템 추가
 
         elif selection == "2":
             print("당신은 조용히 우회하여 지나갑니다.")
