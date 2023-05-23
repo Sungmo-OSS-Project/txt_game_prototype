@@ -1,7 +1,10 @@
 class Item():
     """Item Class"""
-    def __init__(self, name: str = str(), weight: int = int()) -> None:
+    def __init__(self, category: str = str(), name: str = str(), weight: int = int()) -> None:
         """Item 생성"""
+        
+        self.category: str = category
+        """Item의 종류"""
         
         self.name: str = name
         """Item의 이름"""
