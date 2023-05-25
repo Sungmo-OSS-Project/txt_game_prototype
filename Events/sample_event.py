@@ -1,6 +1,6 @@
 from Events.Event import Event
 from Player import Player
-from item_dict import *
+# import item_dict 아이템 사전이 필요시 주석 해제
 
 
 class event_name_here(Event):
