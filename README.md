@@ -32,6 +32,9 @@
 특정 조건 만족 시(제공된 이벤트 전부 소진, 특정 턴 이상 생존 등 조건은 추후에 확정) 발생.
 “당신은 A-04쉘터 최고의 탐색가로서 쉘터에 물자를 조달하며 생존을 이어갑니다. 그 끝이 어떻게 될 지는 아무도 모르죠.”
 
+# 클래스 문서
+https://sungmo-oss-project.github.io/txt_game_prototype/
+
 # 프로젝트 칸반 보드
 https://github.com/orgs/Sungmo-OSS-Project/projects/1
 
