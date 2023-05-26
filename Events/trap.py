@@ -2,10 +2,10 @@ from Events.Event import Event
 from Player import Player
 from item_dict import *
 
-class Fall_by_rock(Event):
+class trap_py(Event):
     """
     단발성 이벤트
-    다른 생존자가 설치한 덫에 걸려 hp를 감소합니다.
+    다른 생존자가 설치한 덫에 걸려 hp가 감소합니다.
     """
     def __init__(self, player: Player, name: str = "", level: int = 0, description: str = "") -> None:
         super().__init__(name, level, description)
