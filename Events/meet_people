@@ -20,14 +20,14 @@ class Meet_zombie(Event):
         
         print("1. 약탈한다.")
         print("2. 우회한다.")
-        print("2. 거래를 요청한다.")
+        print("3. 거래한다.")
         selection = input("1, 2, 3 : ")
         if selection == "1":
             print("당신은 승리했습니다. 상대방의 가방에서 가져갈 물건을 선택하세요.") #확률적 승리는 미구현 상태이므로 임시적으로 확정 승리로 고정,
             #혹은 meet_people_win, meet_people_lose같이 두가지를 만들어서 하는 방법도 고려
-            print("미구현") # 아이템창의 아이템들을 랜덤하게 2~3개 가져와서 선택할 수 있는 기능을 추가하고 싶습니다.
+            print("상대방의 가방 구석에서 빵을 발견했습니다. 획득합니다.") # 아이템창의 아이템들을 랜덤하게 2~3개 가져와서 선택할 수 있는 기능을 추가하고 싶습니다.
             
-            self.player.inventory.addItem(선택한 아이템) #아이템 추가
+            self.player.inventory.addItem(bread) #아이템 추가
             
         elif selection == "2":
             print("당신은 조용히 우회하여 지나갑니다.")
