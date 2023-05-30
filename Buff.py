@@ -3,26 +3,26 @@ class Buff():
     def __init__(self, name: str = str(), level: int = int()) -> None:
         """Buff 생성"""
 
-        self.name: str = name
+        self.__name: str = name
         """Buff의 이름"""
 
-        self.level: int = level
+        self.__level: int = level
         """Buff의 레벨"""
 
     def getName(self) -> str:
         """Buff의 이름을 반환"""
-        return self.name
+        return self.__name
 
     def setName(self, name: str) -> "Buff":
         """Buff의 이름을 설정"""
-        self.name = name
+        self.__name = name
         return self
 
     def getLevel(self) -> int:
         """Buff의 레벨을 반환"""
-        return self.level
+        return self.__level
 
     def setLevel(self, level: int) -> "Buff":
         """Buff의 레벨을 설정"""
-        self.level = level
+        self.__level = level
         return self
