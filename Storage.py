@@ -6,8 +6,11 @@ class Storage:
     """Storage Class\n
     아이템을 저장하는 공간을 담당하는 클래스입니다.
     """
-    def __init__(self) -> None:
+    def __init__(self, name: str = "저장공간", weight_max: int = 20) -> None:
         """init Storage"""
+
+        self.__name: str = name
+        """저장공간의 이름"""
 
         self.__storage: List[Item] = list()
 
@@ -21,6 +24,10 @@ class Storage:
         플레이어는 시작 시 최대무게(weight_max)가 설정된다.
         특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
         """
+
+    def getName(self) -> str:
+        """저장공간의 이름을 반환"""
+        return self.__name
 
     def getItem(self) -> List[Item]:
         """아이템 리스트를 반환"""
@@ -44,7 +51,7 @@ class Storage:
 
     def printStorage(self) -> None:
         """인벤토리 출력"""
-        print("인벤토리")
+        print(self.__name)
         for item in self.__storage:
             print(f"- {item.getName()}(무게:{item.getWeight()})")
         print(f"용량: {self.__weight}/{self.__weight_max}")
