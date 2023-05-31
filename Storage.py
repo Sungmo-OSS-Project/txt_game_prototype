@@ -1,5 +1,6 @@
 from typing import List
 from Item import Item
+import unicodedata
 
 
 class Storage:
@@ -19,7 +20,7 @@ class Storage:
         아이템마다 무게가 다르며, 플레이어가 한 번에 소지할 수 있는 아이템 수량에 제한을 두는 기능이다.
         """
 
-        self.__weight_max: int = int(20)
+        self.__weight_max: int = weight_max
         """최대 무게 제한\n
         플레이어는 시작 시 최대무게(weight_max)가 설정된다.
         특정 이벤트를 통하여 최대 무게를 늘릴 수 있다.
