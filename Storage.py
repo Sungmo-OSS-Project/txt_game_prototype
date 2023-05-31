@@ -49,12 +49,62 @@ class Storage:
         self.__storage.remove(item)
         self.setWeight()
 
-    def printStorage(self) -> None:
+    def printStorage(self, doPrint: bool = True) -> List[str]:
         """인벤토리 출력"""
-        print(self.__name)
+        string: List[str] = list()  # print한 텍스트의 리스트
+        if doPrint:
+            print(self.__name)
+        string.append(self.__name)
+
         for item in self.__storage:
-            print(f"- {item.getName()}(무게:{item.getWeight()})")
-        print(f"용량: {self.__weight}/{self.__weight_max}")
+            if doPrint:
+                print(f"- {item.getName()}(무게:{item.getWeight()})")
+            string.append(f"- {item.getName()}(무게:{item.getWeight()})")
+
+        if doPrint:
+            print(f"용량: {self.__weight}/{self.__weight_max}")
+        string.append(f"용량: {self.__weight}/{self.__weight_max}")
+
+        return string
+
+    def printTwoStorage(self, otherStorage: "Storage",
+                        reverse: bool = False) -> None:
+        """두개의 저장소를 가로로 출력합니다.\n
+        reverse는 주체와 객체가 바뀌어 출력하는 옵션입니다.
+        """
+        if reverse is False:
+            text1 = self.printStorage(doPrint=False)
+            text2 = otherStorage.printStorage(doPrint=False)
+        elif reverse is True:
+            text1 = otherStorage.printStorage(doPrint=False)
+            text2 = self.printStorage(doPrint=False)
+
+        def get_width(text: str):
+            width = 0
+            for char in text:
+                char_width = 2 if unicodedata.east_asian_width(char) == 'W' else 1
+                width += char_width
+            return width
+
+        # 가장 긴 문자열의 폭
+        max_length = max(get_width(text) for text in text1)
+
+        text1_end = False
+        text2_end = False
+        index = 0
+        while not text1_end or not text2_end:
+            try:
+                print(text1[index], end="\t" * ((max_length - get_width(text1[index]))//4) + "\t")
+            except IndexError:
+                print("", end="\t" * (max_length//4 - 1))
+                text1_end = True
+            try:
+                print(text2[index])
+            except IndexError:
+                print("")
+                text2_end = True
+
+            index += 1
 
     def getWeight(self) -> int:
         """무게 값 반환"""
