@@ -14,5 +14,5 @@ def comeback(player: Player):
         elif inputs == "N":
             return False
         elif inputs == "A":  # death scenario for the test
-            player.setHealth(0)
+            player.set_health(0)
             return True

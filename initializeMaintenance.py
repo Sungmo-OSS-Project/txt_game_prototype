@@ -9,7 +9,7 @@ def initializeMaintenance(player: Player):
     print("기초 정비")
 
     # 체력 표시
-    player.printHealth()
+    player.print_health()
 
     # 기본 아이템 제공
     player.inventory.add_item(item_dict.knife)

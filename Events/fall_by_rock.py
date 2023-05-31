@@ -15,5 +15,5 @@ class Fall_by_rock(Event):
 
     def trigger(self) -> None:
         print("당신은 길을 가다 돌부리에 발이 걸려 넘어졌습니다.\n체력이 1 감소합니다.")
-        self.player.setHealth(self.player.getHealth() - 1)
-        self.player.printHealth()
+        self.player.set_health(self.player.get_health() - 1)
+        self.player.print_health()
