@@ -130,9 +130,42 @@ class Storage:
         self.__weight_max = max
         return self
 
+    def giveItem(self, otherStorage: "Storage") -> None:
+        """otherStorage에게 아이템을 줍니다."""
+        self.printTwoStorage(otherStorage, reverse=False)
+
+        item_idx = int(input("주고 싶은 아이템의 인덱스를 입력하세요: "))
+
+        try:
+            item = self.__storage[item_idx]
+
+            self.removeItem(item)
+            otherStorage.addItem(item)
+
+            print(f"{item.getName()}을(를) {otherStorage.__name}에게 주었습니다.")
+        except IndexError:
+            print("유효하지 않은 인덱스입니다.")
+
+    def receiveItem(self, otherStorage: "Storage") -> None:
+        """otherStorage로부터 아이템을 받습니다."""
+        self.printTwoStorage(otherStorage, reverse=True)
+
+        item_idx = int(input("받고 싶은 아이템의 인덱스를 입력하세요: "))
+
+        try:
+            item = otherStorage.__storage[item_idx]
+
+            otherStorage.removeItem(item)
+            self.addItem(item)
+
+            print(f"{item.getName()}을(를) {self.__name}에게 받았습니다.")
+        except IndexError:
+            print("유효하지 않은 인덱스입니다.")
+
     def communicateWith(self, otherStorage: "Storage") -> None:
         """다른 Storage 객체와 상호작용"""
         print(f"{self.__name}와 {otherStorage.__name} 주고받기")
+        self.printTwoStorage(otherStorage, reverse=False)
 
         while True:
             print("0. 서로의 아이템 출력")
@@ -142,36 +175,11 @@ class Storage:
             choice = input("선택하세요: ")
 
             if choice == "0":
-                self.printStorage()
-                otherStorage.printStorage()
+                self.printTwoStorage(otherStorage, reverse=False)
             elif choice == "1":
-                self.printStorage()
-                otherStorage.printStorage()
-                item_idx = int(input("주고 싶은 아이템의 인덱스를 입력하세요: "))
-
-                try:
-                    item = self.__storage[item_idx]
-
-                    self.removeItem(item)
-                    otherStorage.addItem(item)
-
-                    print(f"{item.getName()}을(를) {otherStorage.__name}에게 주었습니다.")
-                except IndexError:
-                    print("유효하지 않은 인덱스입니다.")
+                self.giveItem(otherStorage)
             elif choice == "2":
-                otherStorage.printStorage()
-                self.printStorage()
-                item_idx = int(input("받고 싶은 아이템의 인덱스를 입력하세요: "))
-
-                try:
-                    item = otherStorage.__storage[item_idx]
-
-                    otherStorage.removeItem(item)
-                    self.addItem(item)
-
-                    print(f"{item.getName()}을(를) {self.__name}에게 받았습니다.")
-                except IndexError:
-                    print("유효하지 않은 인덱스입니다.")
+                self.receiveItem(otherStorage)
             elif choice == "3":
                 break
             else:
