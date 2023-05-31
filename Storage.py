@@ -95,9 +95,9 @@ class Storage:
         index = 0
         while not text1_end or not text2_end:
             try:
-                print(text1[index], end="\t" * ((max_length - get_width(text1[index]))//4) + "\t")
+                print(text1[index], end=" "*(max_length - get_width(text1[index])) + "\t")
             except IndexError:
-                print("", end="\t" * (max_length//4 - 1))
+                print("", end=" "*(max_length) + "\t")
                 text1_end = True
             try:
                 print(text2[index])
