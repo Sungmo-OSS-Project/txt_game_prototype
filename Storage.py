@@ -119,7 +119,8 @@ class Storage:
         self.__weight = totalWeight
         if totalWeight > self.__weight_max:
             print("용량 초과")
-            # 아이템 빼내는 기능 구현 필요
+
+            # 아이템을 빼내는 기능
             self.giveItem(Storage(name="쓰레기통", weight_max=1000))
             self.setWeight()
 
