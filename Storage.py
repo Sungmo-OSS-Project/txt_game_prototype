@@ -115,11 +115,12 @@ class Storage:
         totalWeight = int(0)
         for i in self.__storage:
             totalWeight += i.getWeight()
+        self.__weight = totalWeight
         if totalWeight > self.__weight_max:
             print("용량 초과")
             # 아이템 빼내는 기능 구현 필요
-        else:
-            self.__weight = totalWeight
+            self.giveItem(Storage(name="쓰레기통", weight_max=1000))
+            self.setWeight()
 
     def getWeightMax(self) -> int:
         """최대 무게 값 반환"""
