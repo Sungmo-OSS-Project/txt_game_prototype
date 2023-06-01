@@ -41,6 +41,15 @@ class Storage:
         self.set_weight()
         return self
 
+    def has_item(self, item_name: str) -> bool:
+        """아이템이 있는지 없는지 확인하는 메소드\n
+        item_name는 아이템의 이름입니다.
+        """
+        for item in self.get_item():
+            if item.get_name() == item_name:
+                return True
+        return False
+
     def add_item(self, item: Item) -> None:
         """아이템을 저장공간에 추가합니다."""
         print(f"{item.get_name()}을 획득했습니다.")
@@ -101,7 +110,8 @@ class Storage:
         index = 0
         while not text1_end or not text2_end:
             try:
-                print(text1[index], end=" "*(max_length - get_width(text1[index])) + "\t")
+                print(text1[index],
+                      end=" "*(max_length - get_width(text1[index])) + "\t")
             except IndexError:
                 print("", end=" "*(max_length) + "\t")
                 text1_end = True
