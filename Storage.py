@@ -41,12 +41,21 @@ class Storage:
         self.set_weight()
         return self
 
-    def has_item(self, item_name: str) -> bool:
+    def has_item(self, find_item: Item) -> bool:
         """아이템이 있는지 없는지 확인하는 메소드\n
-        item_name는 아이템의 이름입니다.
+        find_item은 아이템 객체입니다.
         """
         for item in self.get_item():
-            if item.get_name() == item_name:
+            if item == find_item:
+                return True
+        return False
+
+    def has_item_name(self, find_item_name: str) -> bool:
+        """아이템이 있는지 없는지 확인하는 메소드\n
+        find_item_name는 아이템의 이름입니다.
+        """
+        for item in self.get_item():
+            if item.get_name() == find_item_name:
                 return True
         return False
 
