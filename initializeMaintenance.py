@@ -13,10 +13,8 @@ def initializeMaintenance(player: Player):
 
     # 기본 아이템 제공
     player.inventory.add_item(item_dict.knife)
-    player.inventory.add_item(item_dict.tomato_can)
     player.inventory.add_item(item_dict.water_bottle)
-    player.inventory.add_item(item_dict.flashLight)
-    player.inventory.add_item(item_dict.medikit)
+    player.inventory.add_item(item_dict.bread)
 
     # 인벤토리 목록 출력
     player.inventory.print_storage()
