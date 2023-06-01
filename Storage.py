@@ -171,10 +171,10 @@ class Storage:
         except IndexError:
             print("유효하지 않은 인덱스입니다.")
 
-    def communicate_with(self, otherStorage: "Storage") -> None:
+    def communicate_with(self, other_storage: "Storage") -> None:
         """다른 Storage 객체와 상호작용"""
-        print(f"{self.__name}와 {otherStorage.__name} 주고받기")
-        self.print_two_storage(otherStorage, reverse=False)
+        print(f"{self.__name}와 {other_storage.__name} 주고받기")
+        self.print_two_storage(other_storage, reverse=False)
 
         while True:
             print("0. 서로의 아이템 출력")
@@ -184,11 +184,11 @@ class Storage:
             choice = input("선택하세요: ")
 
             if choice == "0":
-                self.print_two_storage(otherStorage, reverse=False)
+                self.print_two_storage(other_storage, reverse=False)
             elif choice == "1":
-                self.give_item(otherStorage)
+                self.give_item(other_storage)
             elif choice == "2":
-                self.receive_item(otherStorage)
+                self.receive_item(other_storage)
             elif choice == "3":
                 break
             else:
