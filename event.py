@@ -1,11 +1,13 @@
 from Player import Player
 from Events.fall_by_rock import Fall_by_rock
 from Events.meet_zombie import Meet_zombie
+from Events.DropKnife import DropKnife
 import random
 
 이벤트목록 = [
     Fall_by_rock,
     Meet_zombie,
+    DropKnife
 ]
 """이벤트 클래스들이 list형으로 담겨져 있음"""
 
