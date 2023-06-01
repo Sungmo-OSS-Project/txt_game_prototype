@@ -14,7 +14,7 @@ def main():
 
     player = Player()
     days = int(0)  # 지난 날짜 수　/　経過した日数
-    shelterInventory = Storage()
+    shelterInventory = Storage(name="쉘터 보관함", weight_max=100)
 
     try:
         initializeMaintenance(player)

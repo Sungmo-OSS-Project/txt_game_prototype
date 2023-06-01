@@ -28,7 +28,7 @@ class Player:
         지속적인 체력 감소, 특정 행동의 제약 등을 유발하는 기능.
         """
 
-        self.inventory: Storage = Storage()
+        self.inventory: Storage = Storage(name="플레이어 인벤토리")
         """인벤토리\n
         긍정적 상태처럼 특정 선택지를 선택할 수 있다.
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
