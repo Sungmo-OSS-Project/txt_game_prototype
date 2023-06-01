@@ -10,7 +10,6 @@ def maintenance(player: Player, shelterInventory: Storage):
     print("정비")
     player.setHealth(player.getHealthMax())  # 최대체력까지 체력 회복
     player.printHealth()  # 체력 표시
-    player.inventory.printStorage()  # 인벤토리 표시
 
     # 플레이어 인벤토리와 쉘터 보관함 간 아이템 이동 기능
     player.inventory.communicateWith(shelterInventory)

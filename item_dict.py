@@ -4,10 +4,10 @@ from Item import Item
 아이템명, 무게를 표기
 """
 
-# 아이템 추가할 때 참고하세요
+# 아이템 추가할 때 참고하세요　/　アイテムを追加するときに参考にしてください
 sample = Item(category="아이템 종류", name="아이템이름", weight=int())
 
-# 변수명
+# 변수명　/　変数名
 knife = Item(category="무기", name="나이프", weight=1)
 water_bottle = Item(category="음식", name="생수", weight=2)
 medikit = Item(category="의약품", name="구급상자", weight=4)
