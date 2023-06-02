@@ -14,7 +14,7 @@ def main():
 
     player = Player()
     days = int(0)  # 지난 날짜 수　/　経過した日数
-    shelterInventory = Storage(name="쉘터 보관함", weight_max=100)
+    shelter_inventory = Storage(name="쉘터 보관함", weight_max=100)
 
     try:
         initializeMaintenance(player)
@@ -27,7 +27,7 @@ def main():
 
                     if comeback(player):  # 쉘터에 복귀하면　/　シェルターに帰還したら
                         break
-                maintenance(player, shelterInventory)  # 정비할 수 있음　/　メンテナンスが可能
+                maintenance(player, shelter_inventory)  # 정비할 수 있음　/　メンテナンスが可能
     except Death as e:
         print(e)
     except Exception as e:
