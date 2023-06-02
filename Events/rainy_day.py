@@ -1,6 +1,7 @@
 from Events.Event import Event
 from Player import Player
 import item_dict
+from Item import Item
 
 
 class Rainy_day(Event):
@@ -19,4 +20,9 @@ class Rainy_day(Event):
     def trigger(self) -> None:
         print("비가 오기 시작했습니다.")
         all_items = self.player.inventory.getItem()
-        self.player.inventory.addItem(item_dict.knife)  # 아이템 추가
+        items_weight = 0
+        rain_amount = 0.2
+        for item in all_items:
+            items_weight += item.getWeight()
+        self.player.inventory.addItem(
+            Item(category="상태이상", name="젖은무게", weight=items_weight*0.2))
