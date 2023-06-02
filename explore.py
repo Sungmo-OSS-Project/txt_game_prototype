@@ -12,3 +12,5 @@ def explore(days: int):
             return True
         elif inputs == "N":
             return False
+        else:
+            continue
