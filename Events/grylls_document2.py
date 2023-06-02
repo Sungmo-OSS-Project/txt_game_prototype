@@ -2,11 +2,12 @@ from Events.Event import Event
 from Player import Player
 
 
-class Fall_by_rock(Event):
+class Rainy_day(Event):
     """
     단발성 이벤트
-    돌에 발이 걸려 넘어지며, 체력 감소
+    문서를 발견하는 이스터에그성 이벤트
     """
+
     def __init__(self, player: Player, name: str = "",
                  level: int = 0, description: str = "") -> None:
         super().__init__(name, level, description)
@@ -14,6 +15,5 @@ class Fall_by_rock(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self) -> None:
-        print("당신은 길을 가다 돌부리에 발이 걸려 넘어졌습니다.\n체력이 1 감소합니다.")
-        self.player.set_health(self.player.get_health() - 1)
-        self.player.print_health()
+        print("문서를 발견했습니다.")
+        print("언제나 10%를 애쓰면 100% 더 편해질 수 있죠.")
