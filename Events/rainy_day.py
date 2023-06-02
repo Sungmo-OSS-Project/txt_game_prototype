@@ -25,4 +25,4 @@ class Rainy_day(Event):
         for item in all_items:
             items_weight += item.getWeight()
         self.player.inventory.addItem(
-            Item(category="상태이상", name="젖은무게", weight=items_weight*0.2))
+            Item(category="상태이상", name="젖은무게", weight=items_weight*rain_amount))
