@@ -1,55 +1,54 @@
-from xmlrpc.client import boolean
 from Events.Event import Event
 from Player import Player
 
 
 class Smart_zombie(Event):
     """
-    ´Ü¹ß¼º ÀÌº¥Æ®
-    ´ç½ÅÀº ¶È¶ÈÇÏ¿© ´ëÈ­°¡ °¡´ÉÇÑ Á»ºñ¸¦ ¸¸³µ½À´Ï´Ù.
+    ë‹¨ë°œì„± ì´ë²¤íŠ¸
+    ë‹¹ì‹ ì€ ë˜‘ë˜‘í•˜ì—¬ ëŒ€í™”ê°€ ê°€ëŠ¥í•œ ì¢€ë¹„ë¥¼ ë§Œë‚¬ìŠµë‹ˆë‹¤.
     """
     def __init__(self, player: Player, name: str = "",
                  level: int = 0, description: str = "") -> None:
         super().__init__(name, level, description)
         self.player: Player = player
-        """self.player´Â ¸Þ½ÃÁö¸¦ Àü´ÞÇÒ °´Ã¼°¡ ÀÖ¾î¾ßÇÏ´Ï ¹Ýµå½Ã ÆÄ¶ó¹ÌÅÍ·Î ¹Þ¾Æ¾ßÇÔ."""
+        """self.playerëŠ” ë©”ì‹œì§€ë¥¼ ì „ë‹¬í•  ê°ì²´ê°€ ìžˆì–´ì•¼í•˜ë‹ˆ ë°˜ë“œì‹œ íŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì•¼í•¨."""
 
     def trigger(self) -> None:
-        print("´ç½ÅÀº ¿©Çà±æ¿¡ Á»ºñ¸¦ ¸¸³µ°í ±×¸¦ °ø°ÝÇÕ´Ï´Ù. ±×·¯³ª Á»ºñ´Â ´çÈ²ÇÏ¸ç ´ëÈ­¸¦ ½ÃµµÇÕ´Ï´Ù.")
-        print("¿ì¿Ó!? °ø°ÝÇÏÁö ¸¶¼¼¿ä! ³ª ³ª»Û Á»ºñ ¾Æ´Ï¿¡¿ä! ÀÌ·¸°Ô ¸»µµ ÇÏÀÝ¾Æ¿ä!")
+        print("ë‹¹ì‹ ì€ ì—¬í–‰ê¸¸ì— ì¢€ë¹„ë¥¼ ë§Œë‚¬ê³  ê·¸ë¥¼ ê³µê²©í•©ë‹ˆë‹¤. ê·¸ëŸ¬ë‚˜ ì¢€ë¹„ëŠ” ë‹¹í™©í•˜ë©° ëŒ€í™”ë¥¼ ì‹œë„í•©ë‹ˆë‹¤.")
+        print("ìš°ì™“!? ê³µê²©í•˜ì§€ ë§ˆì„¸ìš”! ë‚˜ ë‚˜ìœ ì¢€ë¹„ ì•„ë‹ˆì—ìš”! ì´ë ‡ê²Œ ë§ë„ í•˜ìž–ì•„ìš”!")
         while True:
-            selection = input("Á»ºñ¸¦ °ø°ÝÇÏ½Ã°Ú½À´Ï±î? Y/N")
+            selection = input("ì¢€ë¹„ë¥¼ ê³µê²©í•˜ì‹œê² ìŠµë‹ˆê¹Œ? Y/N")
             if(selection == "Y"):
-                print("Á»ºñ´Â °ø°ÝÀ» ÇÇÇß½À´Ï´Ù")
-                print("ÃÂ µéÄ×³ª. ¾îÂ¿¼ö ¾øÁö ½Î¿ï ¼ö ¹Û¿¡")
-                print("´ç½ÅÀº ÀüÅõÁØºñ¸¦ ÇÕ´Ï´Ù.")
-                print("36°è ÁÙÇà¶ûÀÌ´å!!! Á»ºñ´Â µµ¸ÁÄ¨´Ï´Ù.")
+                print("ì¢€ë¹„ëŠ” ê³µê²©ì„ í”¼í–ˆìŠµë‹ˆë‹¤")
+                print("ì³‡ ë“¤ì¼°ë‚˜. ì–´ì©”ìˆ˜ ì—†ì§€ ì‹¸ìš¸ ìˆ˜ ë°–ì—")
+                print("ë‹¹ì‹ ì€ ì „íˆ¬ì¤€ë¹„ë¥¼ í•©ë‹ˆë‹¤.")
+                print("36ê³„ ì¤„í–‰ëž‘ì´ë‹·!!! ì¢€ë¹„ëŠ” ë„ë§ì¹©ë‹ˆë‹¤.")
                 inside_while_bool = True
                 while inside_while_bool:
-                    selection = input("Á»ºñ¸¦ Ãß°ÝÇÕ´Ï±î? Y/N")
+                    selection = input("ì¢€ë¹„ë¥¼ ì¶”ê²©í•©ë‹ˆê¹Œ? Y/N")
                     if(selection == "Y"):
-                        print("Á»ºñ´Â µµ¸ÁÄ¡´ø Áß °©ÀÚ±â ¸ØÃß°í ´ç½ÅÀ» ¹Ù¶óº¾´Ï´Ù.")
-                        print("Å©Å©Å© ¼Ó¾Ò±¸³ª ÀÎ°£! Ã¶¼ö´Â Ã¶¼ö¶óµµ Àü·«Àû Ã¶¼ö´å!!!")
-                        print("Á»ºñÀÇ µÚ¿¡¼­ ´ë·®ÀÇ ¹ßÆ÷À½ÀÌ µé¸³´Ï´Ù.")
-                        print("´ç½ÅÀº ÃÑ»óÀ» ´ë·®À¸·Î ÀÔ¾ú½À´Ï´Ù. ±×·¯³ª µ¿·áµéÀÌ µÚ´Ê°Ô µµÂøÇÏ¿© ´ç½ÅÀ» ±¸ÇÕ´Ï´Ù.")
-                        # days 1¸¸Å­ ÁøÇà
+                        print("ì¢€ë¹„ëŠ” ë„ë§ì¹˜ë˜ ì¤‘ ê°‘ìžê¸° ë©ˆì¶”ê³  ë‹¹ì‹ ì„ ë°”ë¼ë´…ë‹ˆë‹¤.")
+                        print("í¬í¬í¬ ì†ì•˜êµ¬ë‚˜ ì¸ê°„! ì² ìˆ˜ëŠ” ì² ìˆ˜ë¼ë„ ì „ëžµì  ì² ìˆ˜ë‹·!!!")
+                        print("ì¢€ë¹„ì˜ ë’¤ì—ì„œ ëŒ€ëŸ‰ì˜ ë°œí¬ìŒì´ ë“¤ë¦½ë‹ˆë‹¤.")
+                        print("ë‹¹ì‹ ì€ ì´ìƒì„ ëŒ€ëŸ‰ìœ¼ë¡œ ìž…ì—ˆìŠµë‹ˆë‹¤. ê·¸ëŸ¬ë‚˜ ë™ë£Œë“¤ì´ ë’¤ëŠ¦ê²Œ ë„ì°©í•˜ì—¬ ë‹¹ì‹ ì„ êµ¬í•©ë‹ˆë‹¤.")
+                        # days 1ë§Œí¼ ì§„í–‰
                         inside_while_bool = False
                     elif(selection == "N"):
-                        print("ÇÔÁ¤ÀÇ °¡´É¼ºÀÌ ÀÖ½À´Ï´Ù ¿©±ä Ã¶¼öÇÏ´Â°Ô ¸Â°ÚÁÒ.")
-                        print("µÚ¸¦ ¹Ù¶óº» ±×¶§!!! ´ç½ÅÀÇ ¸Ó¸®¸¦ ÇâÇØ Ã¶ºÀÀ» ÈÖµÎ¸£´Â Á»ºñ°¡ º¸ÀÔ´Ï´Ù.")
-                        print("´ç½ÅÀº Á»ºñ¸¦ ¾²·¯¶ß¸®Áö¸¸ 1¸¸Å­ µ¥¹ÌÁö¸¦ ÀÔ½À´Ï´Ù.")
+                        print("í•¨ì •ì˜ ê°€ëŠ¥ì„±ì´ ìžˆìŠµë‹ˆë‹¤ ì—¬ê¸´ ì² ìˆ˜í•˜ëŠ”ê²Œ ë§žê² ì£ .")
+                        print("ë’¤ë¥¼ ë°”ë¼ë³¸ ê·¸ë•Œ!!! ë‹¹ì‹ ì˜ ë¨¸ë¦¬ë¥¼ í–¥í•´ ì² ë´‰ì„ íœ˜ë‘ë¥´ëŠ” ì¢€ë¹„ê°€ ë³´ìž…ë‹ˆë‹¤.")
+                        print("ë‹¹ì‹ ì€ ì¢€ë¹„ë¥¼ ì“°ëŸ¬ëœ¨ë¦¬ì§€ë§Œ 1ë§Œí¼ ë°ë¯¸ì§€ë¥¼ ìž…ìŠµë‹ˆë‹¤.")
                         self.player.set_health(self.player.getHealth() - 1)
                         self.player.print_health()
                         inside_while_bool = False
                     else:
-                        print("´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä")
+                        print("ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”")
                 break
             elif(selection == "N"):
-                print("´ç½ÅÀº ´ëÈ­¸¦ ½ÃµµÇÕ´Ï´Ù.")
-                print("Á»ºñ¿¡°Ô ´Ù°¡°¡ÀÚ °©ÀÚ±â ´ç½ÅÀÇ µÚ¿¡¼­ ¶Ç´Ù¸¥ Á»ºñ°¡ ´ç½ÅÀ» µ¤Ä¨´Ï´Ù.")
-                print("¹æ½ÉÇß±¸³ª ÀÎ°£ ±×·³ Á×¾î¾ßÁö Å©ÇÏÇÖ!")
-                print("´ç½ÅÀº Å« »óÃ³¸¦ ÀÔÁö¸¸ µ¿·áµéÀÌ µÚ´Ê°Ô µµÂøÇÏ¿© ´ç½ÅÀ» ±¸ÇÕ´Ï´Ù.")
-                # days 1¸¸Å­ ÁøÇà
+                print("ë‹¹ì‹ ì€ ëŒ€í™”ë¥¼ ì‹œë„í•©ë‹ˆë‹¤.")
+                print("ì¢€ë¹„ì—ê²Œ ë‹¤ê°€ê°€ìž ê°‘ìžê¸° ë‹¹ì‹ ì˜ ë’¤ì—ì„œ ë˜ë‹¤ë¥¸ ì¢€ë¹„ê°€ ë‹¹ì‹ ì„ ë®ì¹©ë‹ˆë‹¤.")
+                print("ë°©ì‹¬í–ˆêµ¬ë‚˜ ì¸ê°„ ê·¸ëŸ¼ ì£½ì–´ì•¼ì§€ í¬í•˜í•«!")
+                print("ë‹¹ì‹ ì€ í° ìƒì²˜ë¥¼ ìž…ì§€ë§Œ ë™ë£Œë“¤ì´ ë’¤ëŠ¦ê²Œ ë„ì°©í•˜ì—¬ ë‹¹ì‹ ì„ êµ¬í•©ë‹ˆë‹¤.")
+                # days 1ë§Œí¼ ì§„í–‰
                 break
             else:
-                print("´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä")
+                print("ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”")
