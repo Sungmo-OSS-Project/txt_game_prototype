@@ -6,9 +6,8 @@ from Item import Item
 
 class Rainy_day(Event):
     """
-    선택지형 이벤트
-    좀비와 조우하여 전투, 우회 중 하나 결정
-    임시 이벤트이므로 확장 예정
+    단발성 이벤트
+    비가 내려서 가방의 무게가 증가
     """
 
     def __init__(self, player: Player, name: str = "",

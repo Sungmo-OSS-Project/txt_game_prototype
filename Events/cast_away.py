@@ -3,6 +3,10 @@ from Player import Player
 
 
 class Rainy_day(Event):
+    """
+    단발성 이벤트
+    문서를 발견하는 이스터에그성 이벤트
+    """
 
     def __init__(self, player: Player, name: str = "",
                  level: int = 0, description: str = "") -> None:
