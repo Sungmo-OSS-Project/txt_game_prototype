@@ -3,11 +3,6 @@ from Player import Player
 
 
 class Rainy_day(Event):
-    """
-    선택지형 이벤트
-    좀비와 조우하여 전투, 우회 중 하나 결정
-    임시 이벤트이므로 확장 예정
-    """
 
     def __init__(self, player: Player, name: str = "",
                  level: int = 0, description: str = "") -> None:
@@ -29,7 +24,6 @@ class Rainy_day(Event):
         print("내 논리로는 이곳을 다시는 보지 못할 거란걸 알고 있었지만, 그냥 그렇게 했고, 계속 숨을 쉬었지.")
         print("그리고 내 예상이 완전히 틀렸다는 게 증명됐어. 파도가 가져온 돛 덕분에.")
         print("결국 나는 이 곳 멤피스에 있고, 돌아와서 너와 이야기하고 있지. 얼음이 든 잔을 들고 말이야.")
-        print("")
         print("")
         print("그리고... 나는 켈리를 다시 잃어버렸어.")
         print("그녀가 내 곁에 없다는 게 너무 슬퍼.")
