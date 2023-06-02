@@ -2,7 +2,7 @@ from Events.Event import Event
 from Player import Player
 from item_dict import *
 
-class Meet_zombie(Event):
+class meet_people(Event):
     """
     선택지형 이벤트
     다른 생존자와 조우하여 약탈, 거래,  중 하나 결정
