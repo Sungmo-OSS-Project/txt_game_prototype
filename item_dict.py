@@ -21,3 +21,4 @@ pistol = Item(category="무기", name="권총", weight=3)
 axe = Item(category="도구", name="도끼", weight=3)
 gasmask = Item(category="도구", name="방독면", weight=2)
 bread = Item(category="음식", name="빵", weight=1)
+serum = Item(category=" 도구", name="혈청", weight=3)  # 사람 만나는 이벤트에서 거래 선택시 혈청을 추가했는데 무게로 인해 못가져가는 상황을 만들고 싶어서 우선 높게 책정
