@@ -8,8 +8,9 @@ def maintenance(player: Player, shelter_inventory: Storage):
     플레이어가 모든 정비를 마친 경우 다시 '탐사 출발'을 선택하여 2 ~ 5의 과정을 반복한다.
     """
     print("정비")
-    player.set_health(player.get_health_max())  # 최대체력까지 체력 회복
-    player.print_health()  # 체력 표시
 
-    # 플레이어 인벤토리와 쉘터 보관함 간 아이템 이동 기능
+    player.set_health(player.get_health_max())  # 최대체력까지 체력 회복　/　最大体力まで体力回復
+    player.print_health()  # 체력 표시　/　体力表示
+
+    # 플레이어 인벤토리와 쉘터 보관함 간 아이템 이동 기능　/　プレイヤーのインベントリとシェルターの保管庫間でアイテム移動機能
     player.inventory.communicate_with(shelter_inventory)
