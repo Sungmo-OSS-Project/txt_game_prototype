@@ -15,5 +15,5 @@ class DropKnife(Event):
 
     def trigger(self) -> None:
         if self.player.inventory.has_item(item_dict.knife):
-            print("나이프의 내구도가 떨어져서 버립니다.")
+            print("당신이 갖고 있는 나이프의 이가 다 나갔습니다.")
             self.player.inventory.remove_item(item_dict.knife)
