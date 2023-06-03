@@ -16,28 +16,27 @@ class Open_chest(Event):
         """self.player는 메시지를 전달할 객체가 있어야하니 반드시 파라미터로 받아야함."""
 
     def trigger(self) -> None:
-        
         print("당신은 길에 버려진 금고를 발견했습니다.")
         print("1. 그냥 두고 지나간다")
         select = int()
         if self.player.inventory.has_item(item_dict.crowbar):
             print("2. 금고를 연다.")
-            select = input("1, 2 >>")
+            select = int(input("1, 2 >>"))
         else:
-            select = input("1 >>")
-        
+            select = int(input("1 >>"))
+
         if select == 1:
             print("당신은 아쉬움을 뒤로하고 가던 길을 갑니다.")
-        
+
         elif select == 2:
             print("당신은 쇠지렛대로 금고를 열었습니다.")
             print("금고 안에는 토마토 통조림 두 개가 들어있었습니다.")
             self.player.inventory.add_item(item_dict.tomato_can)
             self.player.inventory.add_item(item_dict.tomato_can)
-        
+
         # 필요에 따라서 조건문, 반복문을 추가
 
         # 이벤트의 진행에 따라서 구현된 기능을 사용.
 
         # 본 구문은 체력이 1 감소하는 코드
-        self.player.setHealth(self.player.getHealth() - 1)
+        self.player.set_health(self.player.get_health() - 1)
