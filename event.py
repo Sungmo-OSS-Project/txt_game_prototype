@@ -1,17 +1,31 @@
 from Player import Player
-from Events.fall_by_rock import Fall_by_rock
-from Events.meet_zombie import Meet_zombie
-from Events.meet_people import Meet_people
-from Events.DropKnife import DropKnife
-from Events.open_chest_f import Open_chest_f
+import Events.ad_event
+import Events.cast_away
+import Events.DropKnife
+import Events.fall_by_rock
+import Events.get_medikit
+import Events.grylls_document1
+import Events.grylls_document2
+import Events.meet_people
+import Events.meet_zombie
+import Events.open_chest
+import Events.open_chest(f)
+import Events.rainy_day
 import random
 
 이벤트목록 = [
-    Fall_by_rock,
-    Meet_zombie,
-    Meet_people,
-    DropKnife,
-    Open_chest_f
+    Events.ad_event.ad_evet,
+    Events.cast_away.Rainy_day,
+    Events.DropKnife.DropKnife,
+    Events.fall_by_rock.Fall_by_rock,
+    Events.get_medikit.event_name_here,
+    Events.grylls_document1.Rainy_day,
+    Events.grylls_document2.Rainy_day,
+    Events.meet_people.Meet_people,
+    Events.meet_zombie.Meet_zombie,
+    Events.open_chest.Open_chest,
+    Events.open_chest(f).Open_chest_f,
+    Events.rainy_day.Rainy_day
 ]
 """이벤트 클래스들이 list형으로 담겨져 있음"""
 
