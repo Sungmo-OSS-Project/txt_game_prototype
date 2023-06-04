@@ -3,7 +3,7 @@ from Player import Player
 import item_dict
 
 
-class Open_chest(Event):
+class Open_chest(f)(Event):
     """
     선택지형 이벤트(이벤트 종류 입력)
     잠겨있는 상자를 발견함. 
