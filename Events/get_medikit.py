@@ -31,7 +31,7 @@ class event_name_here(Event):
                     print("당신은 좀비를 힘겹게 쓰러뜨렸습니다.")
                     print("약간의 부상을 당했습니다.")
                     print("체력이 3 감소했습니다.")
-                    self.player.set_health(self.player.get_health() - 1)
+                    self.player.set_health(self.player.get_health() - 3)
 
                 print("당신은 쓰러뜨린 좀비를 뒤로하고 약국 안으로 더욱 들어갑니다.")
                 print("닫혀있는 케비넷을 발견했습니다.")
