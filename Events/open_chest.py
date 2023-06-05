@@ -21,22 +21,16 @@ class Open_chest(Event):
         select = int()
         if self.player.inventory.has_item(item_dict.crowbar):
             print("2. 금고를 연다.")
-            select = int(input("1, 2 >>"))
+            select = input("1, 2 >>")
         else:
-            select = int(input("1 >>"))
+            select = input("1 >>")
 
-        if select == 1:
+        #선택지에 따른 이벤트 진행
+        if select == "1":
             print("당신은 아쉬움을 뒤로하고 가던 길을 갑니다.")
 
-        elif select == 2:
+        elif select == "2":
             print("당신은 쇠지렛대로 금고를 열었습니다.")
             print("금고 안에는 토마토 통조림 두 개가 들어있었습니다.")
             self.player.inventory.add_item(item_dict.tomato_can)
             self.player.inventory.add_item(item_dict.tomato_can)
-
-        # 필요에 따라서 조건문, 반복문을 추가
-
-        # 이벤트의 진행에 따라서 구현된 기능을 사용.
-
-        # 본 구문은 체력이 1 감소하는 코드
-        self.player.set_health(self.player.get_health() - 1)
