@@ -14,6 +14,7 @@ jobs:
       with:
         repository: Sungmo-OSS-Project/txt_game_prototype
         path: 'repo'
+        ref: 'main'
     - run: ls -al repo
     - uses: ammaraskar/sphinx-action@master
       with:
