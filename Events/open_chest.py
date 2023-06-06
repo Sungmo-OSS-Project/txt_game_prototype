@@ -6,7 +6,7 @@ import item_dict
 class Open_chest(Event):
     """
     선택지형 이벤트(이벤트 종류 입력)
-    잠겨있는 상자를 발견함. 
+    잠겨있는 상자를 발견함.
     쇠지렛대로 상자를 열 수 있음
     """
     def __init__(self, player: Player, name: str = "",

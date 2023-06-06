@@ -9,6 +9,7 @@ import Events.grylls_document2
 import Events.meet_people
 import Events.meet_zombie
 import Events.open_chest
+import Events.open_chest_f
 import Events.rainy_day
 import random
 
@@ -23,6 +24,7 @@ import random
     Events.meet_people.Meet_people,
     Events.meet_zombie.Meet_zombie,
     Events.open_chest.Open_chest,
+    Events.open_chest_f.Open_chest_f,
     Events.rainy_day.Rainy_day
 ]
 """이벤트 클래스들이 list형으로 담겨져 있음"""
