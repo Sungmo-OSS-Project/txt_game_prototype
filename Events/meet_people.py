@@ -24,7 +24,7 @@ class Meet_people(Event):
             print("2. 우회한다.")
             print("3. 거래한다.")
 
-            selection = input("1, 2, 3 : ")
+            selection = input("1, 2, 3 >> ")
 
             if selection == "1":
                 print("당신은 승리했습니다. 상대방의 가방에서 가져갈 물건을 선택하세요.")  # 확률적 승리는 미구현 상태이므로 임시적으로 확정 승리로 결정
