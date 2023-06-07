@@ -13,6 +13,6 @@ def comeback(player: Player):
             return True
         elif inputs == "N":
             return False
-        elif inputs == "A":  # death scenario for the test
+        elif inputs == "A":  # death scenario for the test　/　テストの死亡シナリオ
             player.set_health(0)
             return True
