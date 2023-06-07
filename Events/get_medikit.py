@@ -4,7 +4,7 @@ import item_dict
 import random as rd
 
 
-class event_name_here(Event):
+class Get_medikit(Event):
     """
     선택지형 이벤트(이벤트 종류 입력)
     약국에서 구급상자를 얻을 수 있는 이벤트
