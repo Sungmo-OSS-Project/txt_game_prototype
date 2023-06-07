@@ -7,6 +7,7 @@ import Events.get_medikit
 import Events.get_shovel
 import Events.grylls_document1
 import Events.grylls_document2
+import Events.IncreaseMaxHealthEvent
 import Events.legend_of_the_protein
 import Events.meet_people
 import Events.meet_zombie_mania
@@ -27,6 +28,7 @@ import random
     Events.get_shovel.Get_shovel,
     Events.grylls_document1.Rainy_day,
     Events.grylls_document2.Rainy_day,
+    Events.IncreaseMaxHealthEvent.IncreaseMaxHealthEvent,
     Events.legend_of_the_protein.Legend_of_the_protein,
     Events.meet_people.Meet_people,
     Events.meet_zombie_mania.Meet_zombie_mania,
