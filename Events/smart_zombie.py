@@ -31,6 +31,11 @@ class Smart_zombie(Event):
                         print("크크크 속았구나 인간! 철수는 철수라도 전략적 철수닷!!!")
                         print("좀비의 뒤에서 대량의 발포음이 들립니다.")
                         print("당신은 총상을 대량으로 입었습니다. 그러나 동료들이 뒤늦게 도착하여 당신을 구합니다.")
+
+                        print("당신은 10만큼 데미지를 입었습니다.")
+                        self.player.set_health(self.player.get_health() - 10)
+                        self.player.print_health()
+                        
                         # days 1만큼 진행
                         inside_while_bool = False
                     elif (selection == "N"):
