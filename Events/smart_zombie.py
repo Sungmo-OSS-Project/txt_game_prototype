@@ -37,7 +37,7 @@ class Smart_zombie(Event):
                         print("함정의 가능성이 있습니다 여긴 철수하는게 맞겠죠.")
                         print("뒤를 바라본 그때!!! 당신의 머리를 향해 철봉을 휘두르는 좀비가 보입니다.")
                         print("당신은 좀비를 쓰러뜨리지만 1만큼 데미지를 입습니다.")
-                        self.player.set_health(self.player.getHealth() - 1)
+                        self.player.set_health(self.player.get_health() - 1)
                         self.player.print_health()
                         inside_while_bool = False
                     else:
