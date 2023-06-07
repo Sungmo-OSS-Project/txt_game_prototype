@@ -48,6 +48,10 @@ class Smart_zombie(Event):
                 print("좀비에게 다가가자 갑자기 당신의 뒤에서 또다른 좀비가 당신을 덮칩니다.")
                 print("방심했구나 인간 그럼 죽어야지 크하핫!")
                 print("당신은 큰 상처를 입지만 동료들이 뒤늦게 도착하여 당신을 구합니다.")
+
+                print("당신은 7만큼 데미지를 입었습니다.")
+                self.player.set_health(self.player.get_health() - 7)
+                self.player.print_health()
                 # days 1만큼 진행
                 break
             else:
