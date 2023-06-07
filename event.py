@@ -6,6 +6,7 @@ import Events.fall_by_rock
 import Events.get_medikit
 import Events.grylls_document1
 import Events.grylls_document2
+import Events.IncreaseMaxHealthEvent
 import Events.meet_people
 import Events.meet_zombie
 import Events.open_chest
@@ -21,6 +22,7 @@ import random
     Events.get_medikit.event_name_here,
     Events.grylls_document1.Rainy_day,
     Events.grylls_document2.Rainy_day,
+    Events.IncreaseMaxHealthEvent.IncreaseMaxHealthEvent,
     Events.meet_people.Meet_people,
     Events.meet_zombie.Meet_zombie,
     Events.open_chest.Open_chest,
