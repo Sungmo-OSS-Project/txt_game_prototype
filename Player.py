@@ -34,26 +34,22 @@ class Player:
         하지만 아이템 중 일회성 아이템의 경우, 해당 아이템 사용 시 소멸한다.
         """
 
-    def getHealth(self) -> int:
-        """
-        체력 값을 반환
-        """
+    def get_health(self) -> int:
+        """체력 값을 반환"""
         return self.__health
 
-    def setHealth(self, health: int) -> "Player":
-        """
-        체력 값을 설정
-        """
+    def set_health(self, health: int) -> "Player":
+        """체력 값을 설정"""
         if health <= 0:
             self.__health = 0
-            Death(player=self).getIsDied()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함
+            Death(player=self).raise_death()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함　/　体力を0以下に設定した時、死亡したのか照会する
         elif health >= self.__health_max:
             self.__health = self.__health_max
         else:
             self.__health = health
         return self
 
-    def printHealth(self) -> None:
+    def print_health(self) -> None:
         """체력 값을 출력"""
         print(f"체력: {self.__health}/{self.__health_max}")
         for i in range(self.__health_max):
@@ -63,36 +59,29 @@ class Player:
                 print("□", end="")
         print()
 
-    def getIsDied(self) -> bool:
-        """죽었는가 반환"""
-        if self.__health <= 0:  # 체력이 0보다 작거나 같아지면 True
-            return True
-        else:
-            return False
-
-    def getHealthMax(self) -> int:
+    def get_health_max(self) -> int:
         """최대 체력 값을 반환"""
         return self.__health_max
 
-    def setHealthMax(self, max: int) -> "Player":
+    def set_health_max(self, max: int) -> "Player":
         """최대 체력 값을 설정"""
         self.__health_max = max
         return self
 
-    def getBuffs(self) -> List[Buff]:
+    def get_buffs(self) -> List[Buff]:
         """버프/디버프 반환"""
         return self.__buffs
 
-    def setBuffs(self, buffs: List[Buff]) -> "Player":
+    def set_buffs(self, buffs: List[Buff]) -> "Player":
         """버프/디버프 설정"""
         self.__buffs = buffs
         return self
 
-    def printBuffs(self) -> None:
+    def print_buffs(self) -> None:
         """버프/디버프 출력"""
         print("버프/디버프")
         for i in self.__buffs:
-            print(f"- {i.getName()} : {i.getLevel()}")
+            print(f"- {i.get_name()} : {i.get_level()}")
 
 
 class Death(Exception):
@@ -102,6 +91,6 @@ class Death(Exception):
         super().__init__("당신은 쉘터에 복귀하지 못하고 사망하였습니다.")
         self.player = player
 
-    def getIsDied(self) -> None:
-        if self.player.getIsDied():
-            raise self
+    def raise_death(self) -> None:
+        """예외를 던집니다."""
+        raise self

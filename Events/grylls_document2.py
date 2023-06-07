@@ -3,6 +3,10 @@ from Player import Player
 
 
 class Rainy_day(Event):
+    """
+    단발성 이벤트
+    문서를 발견하는 이스터에그성 이벤트
+    """
 
     def __init__(self, player: Player, name: str = "",
                  level: int = 0, description: str = "") -> None:
@@ -12,4 +16,4 @@ class Rainy_day(Event):
 
     def trigger(self) -> None:
         print("문서를 발견했습니다.")
-        print("하지만 맛이 중요한가요, 무조건 열량만 있으면 돼요.")
+        print("언제나 10%를 애쓰면 100% 더 편해질 수 있죠.")

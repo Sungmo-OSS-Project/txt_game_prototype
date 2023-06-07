@@ -21,4 +21,4 @@ class event_name_here(Event):
         # 이벤트의 진행에 따라서 구현된 기능을 사용.
 
         # 본 구문은 체력이 1 감소하는 코드
-        self.player.setHealth(self.player.getHealth() - 1)
+        self.player.set_health(self.player.get_health() - 1)
