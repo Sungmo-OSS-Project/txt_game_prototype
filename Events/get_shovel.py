@@ -20,7 +20,7 @@ class Get_shovel(Event):
         print("좀비는 등에 삽을 매고 있습니다.")
         print("1. 좀비와 싸운다.")
         print("2. 길을 돌아간다.")
-        selection = int(input("1, 2 >> "))
+        selection = input("1, 2 >> ")
         if selection == "1":
             if rd.random() < 0.9:
                 print("당신은 좀비를 손쉽게 쓰러뜨렸습니다.")
