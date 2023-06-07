@@ -1,5 +1,4 @@
-﻿from turtle import pen
-from Events.Event import Event
+﻿from Events.Event import Event
 from Player import Player
 
 
