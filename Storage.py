@@ -73,7 +73,7 @@ class Storage:
 
     def print_storage(self, do_print: bool = True) -> List[str]:
         """인벤토리 출력"""
-        string: List[str] = list()  # print한 텍스트의 리스트
+        string: List[str] = list()  # print한 텍스트의 리스트　/　printしたテキストのリスト
         if do_print:
             print(self.__name)
         string.append(self.__name)
@@ -111,7 +111,7 @@ class Storage:
                 width += char_width
             return width
 
-        # 가장 긴 문자열의 폭
+        # 가장 긴 문자열의 폭　/　1番長い文字列の幅
         max_length = max(get_width(text) for text in text1)
 
         text1_end = False
@@ -145,7 +145,7 @@ class Storage:
         if total_weight > self.__weight_max:
             print("용량 초과")
 
-            # 아이템을 빼내는 기능
+            # 아이템을 빼내는 기능　/　アイテムを取り出す機能
             self.give_item(Storage(name="쓰레기통", weight_max=1000))
             self.set_weight()
 

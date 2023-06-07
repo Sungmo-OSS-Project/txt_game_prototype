@@ -3,7 +3,7 @@ from Player import Player
 import item_dict
 import random as rd
 
-class Get_serum(Event):
+class Get_shovel(Event):
     """
     선택지 이벤트
     삽을 얻을 수 있는 이벤트

@@ -42,7 +42,7 @@ class Player:
         """체력 값을 설정"""
         if health <= 0:
             self.__health = 0
-            Death(player=self).raise_death()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함
+            Death(player=self).raise_death()  # 체력을 0 이하로 설정할 때, 사망했는지 조회함　/　体力を0以下に設定した時、死亡したのか照会する
         elif health >= self.__health_max:
             self.__health = self.__health_max
         else:
