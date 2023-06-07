@@ -24,5 +24,5 @@ class Meet_zombie_mania(Event):
         print("당신은 마음과 몸 양쪽에 데미지를 입었습니다.")
         print("체력이 5 줄어듭니다.")
 
-        self.player.set_health(self.player.getHealth() - 5)
+        self.player.set_health(self.player.get_health() - 5)
         self.player.print_health()
