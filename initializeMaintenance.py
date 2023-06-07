@@ -8,14 +8,14 @@ def initializeMaintenance(player: Player):
     """
     print("기초 정비")
 
-    # 체력 표시
+    # 체력 표시　/　体力表示
     player.print_health()
 
-    # 기본 아이템 제공
+    # 기본 아이템 제공　/　基本アイテム提供
     player.inventory.add_item(item_dict.knife)
     player.inventory.add_item(item_dict.water_bottle)
     player.inventory.add_item(item_dict.bread)
 
-    # 인벤토리 목록 출력
+    # 인벤토리 목록 출력　/　インベントリ目録出力
     player.inventory.print_storage()
     print("을 가지고 쉘터로 이동합니다.")
