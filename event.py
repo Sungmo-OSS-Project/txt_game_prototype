@@ -4,6 +4,7 @@ import Events.cast_away
 import Events.DropKnife
 import Events.fall_by_rock
 import Events.get_medikit
+import Events.get_shovel
 import Events.grylls_document1
 import Events.grylls_document2
 import Events.legend_of_the_protein
@@ -22,7 +23,8 @@ import random
     Events.cast_away.Rainy_day,
     Events.DropKnife.DropKnife,
     Events.fall_by_rock.Fall_by_rock,
-    Events.get_medikit.event_name_here,
+    Events.get_medikit.Get_medikit,
+    Events.get_shovel.Get_shovel,
     Events.grylls_document1.Rainy_day,
     Events.grylls_document2.Rainy_day,
     Events.legend_of_the_protein.Legend_of_the_protein,
