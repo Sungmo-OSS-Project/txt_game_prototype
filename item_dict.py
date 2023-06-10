@@ -25,6 +25,6 @@ gasmask = Item(category="도구", name="방독면", weight=2)
 bread = Item(category="음식", name="빵", weight=1)
 potato = Item(category="음식", name="감자", weight=1)
 liquid_medicine = Item(category="의약품", name="물약", weight=3)  # 물약 이벤트에서 사용
-serum = Item0(category=" 도구", name="혈청", weight=5) #소지 시의 리스크를 위해 무게를 높게 설정
+serum = Item(category=" 도구", name="혈청", weight=5) #소지 시의 리스크를 위해 무게를 높게 설정
 sweet_potato = Item(category="음식", name="고구마", weight=1)
 corner_can = Item(category="음식", name="캔 옥수수", weight=2)
